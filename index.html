@@ -532,7 +532,7 @@ body{background:#dce5f5;font-family:'Jost',sans-serif;color:var(--texto);min-hei
       <div class="section-label">Confirmación de asistencia</div>
       <div class="rsvp-inner">
         <div class="deadline">Responder antes del<span>30 de Agosto, 2026</span></div>
-        <button class="rsvp-btn" onclick="confirmarWhatsApp()">Confirmar Asistencia</button>
+        <button class="rsvp-btn" onclick="openModal()">Confirmar Asistencia</button>
         <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--texto2);margin-top:22px">¡Esperamos verlos y celebrar juntos!</p>
       </div>
     </div>
@@ -610,13 +610,6 @@ function activateMusic() {
     document.getElementById('musicBtn').style.display = 'none';
     document.getElementById('pauseBtn').style.display = 'flex';
   }).catch(() => {});
-}
-
-function confirmarWhatsApp() {
-  const nombre = guestName || 'Invitado';
-  const mensaje = `¡Hola Karin y Nicolas! 💍\n\nSoy *${nombre}* y quiero confirmar mi asistencia a su boda del 12 de Diciembre de 2026. 🎉\n\n`;
-  const url = `https://wa.me/573226390841?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
 }
 
 // ── Countdown ──
