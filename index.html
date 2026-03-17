@@ -318,35 +318,13 @@ body{background:#dce5f5;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 
 <!-- MODAL RSVP -->
 <div class="modal-backdrop" id="rsvpModal">
-  <div class="modal">
+  <div class="modal" style="max-width:480px">
     <div class="modal-header">
       <div class="modal-title">Confirmar asistencia</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div id="modalForm">
-      <div class="modal-body">
-        <div class="modal-field">
-          <label class="modal-label">Nombre completo de los invitados *</label>
-          <textarea class="modal-textarea" id="rsvpNombres" placeholder="Ej: Juan Pérez, María López..."></textarea>
-        </div>
-        <div class="modal-field">
-          <label class="modal-label">¿Podrás asistir a nuestra boda?</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="asistencia" value="si"> Sí asistiré</label>
-            <label class="radio-label"><input type="radio" name="asistencia" value="no"> Lo siento, no podré</label>
-          </div>
-        </div>
-        <div class="modal-field">
-          <label class="modal-label">Felicitaciones y buenos deseos:</label>
-          <textarea class="modal-textarea" id="rsvpMensaje" placeholder="Escribe tu mensaje para los novios..."></textarea>
-        </div>
-        <button class="modal-submit" onclick="submitRSVP()">Enviar confirmación</button>
-      </div>
-    </div>
-    <div class="modal-success" id="modalSuccess" style="display:none">
-      <span class="modal-success-icon">♥</span>
-      <div class="modal-success-title">¡Gracias por confirmar!</div>
-      <p class="modal-success-text">Nos alegra mucho saber que estarás con nosotros.<br>¡Hasta el 12 de Diciembre!</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFSg3dPMtH5BT5_8nQlT_VRza2Cj1_22CPYU-pWXKWp50UtQ/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" style="display:block">Cargando…</iframe>
     </div>
   </div>
 </div>
@@ -612,6 +590,8 @@ function activateMusic() {
   }).catch(() => {});
 }
 
+function confirmarWhatsApp() {}
+
 // ── Countdown ──
 function updateCD() {
   const d = new Date('2026-12-12T17:00:00') - new Date();
@@ -632,19 +612,9 @@ function showTab(tab, btn) {
 }
 
 // ── Modal RSVP ──
-function openModal() {
-  document.getElementById('rsvpModal').classList.add('open');
-  document.getElementById('modalForm').style.display = 'block';
-  document.getElementById('modalSuccess').style.display = 'none';
-}
-function closeModal() { document.getElementById('rsvpModal').classList.remove('open'); }
-document.getElementById('rsvpModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-function submitRSVP() {
-  if (!document.getElementById('rsvpNombres').value.trim()) { alert('Por favor ingresa tu nombre.'); return; }
-  if (!document.querySelector('input[name=asistencia]:checked')) { alert('Por favor selecciona si podrás asistir.'); return; }
-  document.getElementById('modalForm').style.display = 'none';
-  document.getElementById('modalSuccess').style.display = 'block';
-}
+function openModal(){document.getElementById('rsvpModal').classList.add('open');}
+function closeModal(){document.getElementById('rsvpModal').classList.remove('open');}
+document.getElementById('rsvpModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 </body>
 </html>
