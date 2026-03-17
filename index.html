@@ -657,13 +657,12 @@ function submitRSVP(){
   const mensaje=document.getElementById('rsvpMensaje').value.trim();
   if(!nombre){alert('Por favor ingresa tu nombre.');return;}
   if(!asistencia){alert('Por favor selecciona si podrás asistir.');return;}
-  // Enviar via Google Apps Script
-  const scriptUrl='https://script.google.com/macros/s/AKfycbyGZiXmcsygfNFZIMQMLNT14lq5xV8af6IjuVk-8-w7APvkdPXqgJFqJ0vy8iw9F9Ob/exec';
-  const params=new URLSearchParams();
-  params.append('nombre', nombre);
-  params.append('asistencia', asistencia.value);
-  params.append('mensaje', mensaje);
-  fetch(scriptUrl+'?'+params.toString(),{method:'GET',mode:'no-cors'}).catch(()=>{});
+  // Enviar via Formspree
+  fetch('https://formspree.io/f/mjgapdvg',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({nombre:nombre,asistencia:asistencia.value,mensaje:mensaje})
+  }).catch(()=>{});
   document.getElementById('modalForm').style.display='none';
   document.getElementById('modalSuccess').style.display='block';
 }
