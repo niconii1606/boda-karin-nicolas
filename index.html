@@ -657,16 +657,9 @@ function submitRSVP(){
   const mensaje=document.getElementById('rsvpMensaje').value.trim();
   if(!nombre){alert('Por favor ingresa tu nombre.');return;}
   if(!asistencia){alert('Por favor selecciona si podrás asistir.');return;}
-  // Enviar a Google Forms en segundo plano
-  const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSdFSg3dPMtH5BT5_8nQlT_VRza2Cj1_22CPYU-pWXKWp50UtQ/formResponse';
-  const data=new FormData();
-  data.append('entry.1919961289', nombre);
-  data.append('entry.1719577268', asistencia.value);
-  data.append('entry.1110310619', mensaje);
-  const img=new Image();
-  img.src=formUrl+'?'+new URLSearchParams(data).toString();
-  // También intentar fetch como respaldo
-  fetch(formUrl,{method:'POST',body:data,mode:'no-cors'}).catch(()=>{});
+  // Enviar a Google Apps Script → Sheets
+  const scriptUrl='https://script.google.com/macros/s/AKfycbxB2l5Wqm139nJDOpjQ5gvL8V2A6V2Ac3l8WRax59o4Di_V7w3pr0txsbw22HW9zC4P/exec';
+  fetch(scriptUrl+'?nombre='+encodeURIComponent(nombre)+'&asistencia='+encodeURIComponent(asistencia.value)+'&mensaje='+encodeURIComponent(mensaje),{method:'GET',mode:'no-cors'}).catch(()=>{});
   document.getElementById('modalForm').style.display='none';
   document.getElementById('modalSuccess').style.display='block';
 }
