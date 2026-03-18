@@ -208,19 +208,19 @@ body{background:#dce5f5;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .modal-close{position:absolute;top:14px;right:14px;width:28px;height:28px;background:rgba(232,201,106,0.15);border:none;cursor:pointer;color:var(--oro-claro);font-size:16px;display:flex;align-items:center;justify-content:center}
 .modal-body{padding:24px}
 .modal-field{margin-bottom:20px}
-.modal-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--azul-med);display:block;margin-bottom:8px}
-.modal-input,.modal-textarea{width:100%;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);border:0.5px solid var(--borde);background:var(--fondo);padding:10px 12px;outline:none;resize:vertical;transition:border-color 0.2s}
+.modal-label{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--blanco);display:block;margin-bottom:8px;background:var(--azul);padding:6px 12px;margin-left:-24px;margin-right:-24px;padding-left:24px}
+.modal-input,.modal-textarea{width:100%;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--texto);border:0.5px solid var(--borde);background:var(--fondo);padding:10px 12px;outline:none;resize:vertical;transition:border-color 0.2s}
 .modal-input:focus,.modal-textarea:focus{border-color:var(--azul-med)}
 .modal-textarea{min-height:80px}
 .radio-group{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-.radio-label{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto)}
+.radio-label{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto)}
 .radio-label input[type=radio]{accent-color:var(--azul);width:16px;height:16px;cursor:pointer}
-.modal-submit{width:100%;background:var(--azul);color:var(--oro-claro);font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:14px;border:none;cursor:pointer;transition:background 0.3s;margin-top:8px}
+.modal-submit{width:100%;background:var(--azul);color:var(--oro-claro);font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;letter-spacing:2px;padding:14px;border:none;cursor:pointer;transition:background 0.3s;margin-top:8px}
 .modal-submit:hover{background:var(--azul-med)}
 .modal-success{text-align:center;padding:32px 24px}
 .modal-success-icon{font-size:36px;color:var(--azul-med);display:block;margin-bottom:16px}
 .modal-success-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--texto);margin-bottom:8px}
-.modal-success-text{font-family:'Jost',sans-serif;font-size:11px;color:var(--texto2);letter-spacing:1px}
+.modal-success-text{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--texto2)}
 
 /* FOOTER */
 .footer{background:var(--azul);padding:30px 48px;text-align:center}
@@ -657,12 +657,16 @@ function submitRSVP(){
   const mensaje=document.getElementById('rsvpMensaje').value.trim();
   if(!nombre){alert('Por favor ingresa tu nombre.');return;}
   if(!asistencia){alert('Por favor selecciona si podrás asistir.');return;}
-  // Enviar via Formspree
-  fetch('https://formspree.io/f/mjgapdvg',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({nombre:nombre,asistencia:asistencia.value,mensaje:mensaje})
-  }).catch(()=>{});
+  // Enviar a Google Forms en segundo plano
+  const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSdFSg3dPMtH5BT5_8nQlT_VRza2Cj1_22CPYU-pWXKWp50UtQ/formResponse';
+  const data=new FormData();
+  data.append('entry.1919961289', nombre);
+  data.append('entry.1719577268', asistencia.value);
+  data.append('entry.1110310619', mensaje);
+  const img=new Image();
+  img.src=formUrl+'?'+new URLSearchParams(data).toString();
+  // También intentar fetch como respaldo
+  fetch(formUrl,{method:'POST',body:data,mode:'no-cors'}).catch(()=>{});
   document.getElementById('modalForm').style.display='none';
   document.getElementById('modalSuccess').style.display='block';
 }
