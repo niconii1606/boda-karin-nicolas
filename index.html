@@ -493,12 +493,31 @@ video{display:none!important}
 
 
     <!-- VESTIMENTA -->
-    <div class="section">
-      <div class="section-label">Código de vestimenta</div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-        <div style="background:var(--azul);padding:8px 22px"><span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro)">Formal</span></div>
+    <div class="section" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Código de vestimenta</div>
+
+      <!-- Ícono pareja -->
+      <div style="margin:10px 0 18px">
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+          <path d="M18 8 Q21 4 24 8 L27 18 L21 20 L15 18Z" fill="var(--azul)" opacity="0.7"/>
+          <path d="M21 20 L19 38 Q21 40 27 40 Q33 40 35 38 L33 20Z" fill="var(--azul)" opacity="0.5"/>
+          <circle cx="21" cy="5" r="4" fill="var(--azul)" opacity="0.6"/>
+          <path d="M36 8 Q38 4 40 6 L44 18 L39 20 L34 18Z" fill="var(--azul-med)" opacity="0.7"/>
+          <path d="M34 18 L32 38 L38 38 L40 20Z" fill="var(--azul-med)" opacity="0.5"/>
+          <circle cx="38" cy="5" r="4" fill="var(--azul-med)" opacity="0.6"/>
+        </svg>
       </div>
-      <div class="palette-row">
+
+      <!-- Badge Formal -->
+      <div style="display:inline-block;background:var(--azul);padding:8px 28px;margin-bottom:20px">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro)">Formal</span>
+      </div>
+
+      <!-- Descripción -->
+      <p style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--texto);line-height:1.7;margin-bottom:20px">Nuestra celebración se inspira en una paleta armónica de tonos naturales y alegres: pasteles, tierra y colores tropicales.</p>
+
+      <!-- Paleta -->
+      <div class="palette-row" style="justify-content:center;margin-bottom:20px">
         <div class="swatch"><div class="swatch-circle" style="background:#d4c5a9"></div><span class="swatch-name">Arena</span></div>
         <div class="swatch"><div class="swatch-circle" style="background:#b5c4a8"></div><span class="swatch-name">Salvia</span></div>
         <div class="swatch"><div class="swatch-circle" style="background:#d4a882"></div><span class="swatch-name">Terracota</span></div>
@@ -506,29 +525,41 @@ video{display:none!important}
         <div class="swatch"><div class="swatch-circle" style="background:#9db5a5"></div><span class="swatch-name">Menta</span></div>
         <div class="swatch"><div class="swatch-circle" style="background:#e8d5b0"></div><span class="swatch-name">Crema</span></div>
       </div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--texto);margin-top:14px">Colores a evitar:</p>
-      <div class="avoid-row"><div class="avoid-pill avoid-white">Blanco</div><div class="avoid-pill avoid-black">Negro</div><div class="avoid-pill avoid-red">Rojo</div></div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--texto);margin-top:22px">Inspiración de outfits:</p>
-      <div class="outfit-tabs"><button class="outfit-tab active" onclick="showTab('mujeres',this)">Mujeres</button><button class="outfit-tab" onclick="showTab('hombres',this)">Hombres</button></div>
-      <div class="outfit-panel active" id="tab-mujeres">
-        <div class="outfit-grid">
-          <a class="outfit-item" href="https://co.pinterest.com/luzsmanotas55/vestidos-matrimonio-tierra-caliente/" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M21 18 Q28 16 35 18 L39 46 Q28 49 17 46 Z" fill="#d4a882"/><path d="M17 46 Q13 65 11 82" stroke="#d4a882" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M39 46 Q43 65 45 82" stroke="#d4a882" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M17 46 Q20 64 28 70 Q36 64 39 46" fill="#d4c5a9" opacity="0.5"/></svg><div class="outfit-name">Vestido midi</div><div class="outfit-desc">Lino · Terracota</div><span class="outfit-tag">Fresco</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-          <a class="outfit-item" href="https://co.pinterest.com/lnavia1862/outfit-boda-campestre/" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M21 18 Q28 16 35 18 L37 38 Q28 40 19 38 Z" fill="#b5c4a8"/><path d="M19 38 L17 82 Q28 85 39 82 L37 38" fill="#e8d5b0"/></svg><div class="outfit-name">Blusa + falda</div><div class="outfit-desc">Salvia · Crema</div><span class="outfit-tag">Elegante</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-          <a class="outfit-item" href="https://www.awbridal.com/es/country-wedding-guest-dresses" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M21 18 Q28 16 35 18 L41 52 Q28 56 15 52 Z" fill="#c8b8a2"/><path d="M15 52 Q13 68 12 82 Q28 86 44 82 Q43 68 41 52Z" fill="#c8b8a2" opacity="0.75"/></svg><div class="outfit-name">Vestido largo</div><div class="outfit-desc">Fluido · Menta</div><span class="outfit-tag">Romántico</span><div class="outfit-link-badge">Ver opciones ↗</div></a>
-          <a class="outfit-item" href="https://co.pinterest.com/yarococa/vestido-fiesta-tierra-caliente/" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M21 18 Q28 16 35 18 L37 38 Q28 40 19 38 Z" fill="#9db5a5"/><path d="M19 38 L17 82 Q28 85 39 82 L37 38" fill="#d4c5a9"/></svg><div class="outfit-name">Conjunto palazzo</div><div class="outfit-desc">Menta · Crema</div><span class="outfit-tag">Moderno</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
+
+      <!-- Separador -->
+      <div class="divider-ornament" style="margin:18px 0"><div class="diamond"></div></div>
+
+      <!-- Colores a evitar -->
+      <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--texto);margin-bottom:12px">Agradecemos evitar los colores:</p>
+      <div style="display:flex;justify-content:center;gap:16px;margin-bottom:24px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#f5f5f5;border:1px solid #ddd"></div>
+          <span class="swatch-name">Blanco</span>
         </div>
-        <p class="outfit-hint">✦ Telas: lino, chiffon, algodón ✦ Sandalia plataforma ✦</p>
-        <a class="outfit-see-more" href="https://co.pinterest.com/luzsmanotas55/vestidos-matrimonio-tierra-caliente/" target="_blank"><span>Ver más inspiración para mujeres</span></a>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#222"></div>
+          <span class="swatch-name">Negro</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#c0392b"></div>
+          <span class="swatch-name">Rojo</span>
+        </div>
       </div>
-      <div class="outfit-panel" id="tab-hombres">
-        <div class="outfit-grid">
-          <a class="outfit-item" href="https://co.pinterest.com/search/pins/?q=guayabera+lino+boda+campestre+hombre" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M19 18 Q28 16 37 18 L40 50 Q28 53 16 50 Z" fill="#e8d5b0"/><path d="M16 50 L14 82 Q28 86 42 82 L40 50" fill="#c8b8a2"/><rect x="24" y="20" width="8" height="4" rx="1" fill="#c9a030" opacity="0.5"/></svg><div class="outfit-name">Guayabera lino</div><div class="outfit-desc">Crema · Beige</div><span class="outfit-tag">Clásico</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-          <a class="outfit-item" href="https://co.pinterest.com/search/pins/?q=camisa+lino+hombre+boda+campestre" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M19 18 Q28 16 37 18 L39 48 Q28 51 17 48 Z" fill="#b5c4a8"/><path d="M17 48 L15 82 Q28 86 41 82 L39 48" fill="#d4c5a9"/></svg><div class="outfit-name">Camisa salvia</div><div class="outfit-desc">Manga larga · Lino</div><span class="outfit-tag">Elegante</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-          <a class="outfit-item" href="https://co.pinterest.com/search/pins/?q=blazer+lino+hombre+boda+tierra+caliente" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M19 18 Q28 16 37 18 L39 48 Q28 51 17 48 Z" fill="#d4c5a9"/><path d="M20 19 L16 48 Q28 51 40 48 L36 19" fill="#c9a030" opacity="0.25"/><path d="M17 48 L15 82 Q28 86 41 82 L39 48" fill="#8a9e8a"/></svg><div class="outfit-name">Blazer + pantalón</div><div class="outfit-desc">Crema · Verde oliva</div><span class="outfit-tag">Smart casual</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-          <a class="outfit-item" href="https://co.pinterest.com/search/pins/?q=guayabera+terracota+hombre+boda" target="_blank"><svg class="outfit-figure" viewBox="0 0 56 84" fill="none"><circle cx="28" cy="9" r="7" fill="#d4c5a9"/><path d="M19 18 Q28 16 37 18 L39 48 Q28 51 17 48 Z" fill="#d4a882"/><path d="M17 48 L15 82 Q28 86 41 82 L39 48" fill="#d4a882" opacity="0.7"/></svg><div class="outfit-name">Guayabera terracota</div><div class="outfit-desc">Tono cálido · Arena</div><span class="outfit-tag">Tropical</span><div class="outfit-link-badge">Ver en Pinterest ↗</div></a>
-        </div>
-        <p class="outfit-hint">✦ Telas: lino, algodón, seersucker ✦ Mocasín claro ✦</p>
-        <a class="outfit-see-more" href="https://co.pinterest.com/search/pins/?q=outfit+hombre+boda+campestre+tierra+caliente" target="_blank"><span>Ver más inspiración para hombres</span></a>
+
+      <!-- Separador -->
+      <div class="divider-ornament" style="margin:18px 0"><div class="diamond"></div></div>
+
+      <!-- Botones inspiración -->
+      <p style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--azul-med);margin-bottom:16px">Paleta de inspiración</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="https://co.pinterest.com/luzsmanotas55/vestidos-matrimonio-tierra-caliente/" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background='var(--azul-suave)'" onmouseout="this.style.background='transparent'">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--azul)">Mujeres</div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--azul-med);margin-top:4px">Clic aquí para inspirarte</div>
+        </a>
+        <a href="https://co.pinterest.com/search/pins/?q=outfit+hombre+boda+campestre+tierra+caliente" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background='var(--azul-suave)'" onmouseout="this.style.background='transparent'">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--azul)">Hombres</div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--azul-med);margin-top:4px">Clic aquí para inspirarte</div>
+        </a>
       </div>
     </div>
 
