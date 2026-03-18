@@ -450,77 +450,31 @@ video{display:none!important}
     </div>
 
     <!-- HISTORIA -->
-    <div style="background:var(--blanco);border-bottom:1px solid var(--borde)">
-      <div style="padding:38px calc(50% - 380px) 10px">
-        <div class="section-label">Nuestra historia</div>
-      </div>
-
-      <!-- Slide 1: texto izq, foto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--texto);line-height:1.7">Dos corazones que encontraron en el otro su lugar en el mundo.</p>
-          </div>
+    <div class="section">
+      <div class="section-label">Nuestra historia</div>
+      <div style="position:relative;overflow:hidden;margin:0 -48px">
+        <div id="carrete" style="display:flex;transition:transform 0.5s ease;will-change:transform">
+          <div class="carrete-slide"><img src="santorini.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
+          <div class="carrete-slide"><img src="roma.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
+          <div class="carrete-slide"><img src="peru.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
+          <div class="carrete-slide"><img src="brujas.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
+          <div class="carrete-slide"><img src="londres.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
+          <div class="carrete-slide"><img src="santorini1.jpg" alt="Karin y Nicolas" style="width:100%;height:420px;object-fit:cover;display:block"></div>
         </div>
-        <div style="flex:1;overflow:hidden"><img src="santorini.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      </div>
-
-      <!-- Slide 2: foto izq, texto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;overflow:hidden"><img src="roma.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--texto);line-height:1.7">Cada viaje nos acercó más, cada destino escribió un capítulo de nuestra historia.</p>
-          </div>
+        <button onclick="moverCarrete(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(15,36,96,0.6);border:1px solid rgba(201,160,48,0.5);color:#e8c96a;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">‹</button>
+        <button onclick="moverCarrete(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(15,36,96,0.6);border:1px solid rgba(201,160,48,0.5);color:#e8c96a;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">›</button>
+        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px">
+          <span class="carrete-dot active" onclick="irASlide(0)"></span>
+          <span class="carrete-dot" onclick="irASlide(1)"></span>
+          <span class="carrete-dot" onclick="irASlide(2)"></span>
+          <span class="carrete-dot" onclick="irASlide(3)"></span>
+          <span class="carrete-dot" onclick="irASlide(4)"></span>
+          <span class="carrete-dot" onclick="irASlide(5)"></span>
         </div>
       </div>
-
-      <!-- Slide 3: texto izq, foto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--texto);line-height:1.7">Juntos conquistamos montañas, y hoy damos el paso más hermoso de nuestra vida.</p>
-          </div>
-        </div>
-        <div style="flex:1;overflow:hidden"><img src="peru.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      </div>
-
-      <!-- Slide 4: foto izq, texto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;overflow:hidden"><img src="brujas.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--texto);line-height:1.7">Nuestro amor crece con cada ciudad, con cada amanecer compartido.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 5: texto izq, foto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--texto);line-height:1.7">Desde ese momento supimos que queríamos recorrer el mundo juntos para siempre.</p>
-          </div>
-        </div>
-        <div style="flex:1;overflow:hidden"><img src="londres.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      </div>
-
-      <!-- Slide 6: foto izq, texto der -->
-      <div style="display:flex;min-height:460px">
-        <div style="flex:1;overflow:hidden"><img src="santorini1.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:48px;background:var(--fondo)">
-          <div>
-            
-            <p style="font-family:'Dancing Script',cursive;font-size:28px;color:var(--azul-med);line-height:1.5">Hoy comenzamos la aventura más hermosa de todas: nuestra boda.</p>
-          </div>
-        </div>
-      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto);line-height:1.75;text-align:center;margin-top:22px">Dos corazones que encontraron en el otro su lugar en el mundo. Hoy damos el paso más hermoso de nuestra vida.</p>
     </div>
+
 
     <!-- VESTIMENTA -->
     <div class="section">
