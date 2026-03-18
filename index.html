@@ -121,8 +121,23 @@ body{background:#dce5f5;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .guest-greeting-name{font-family:'Dancing Script',cursive;font-size:24px;color:var(--oro-claro);margin-top:2px}
 
 /* SECCIONES */
-.section{padding:38px calc(50% - 380px);position:relative;border-bottom:1px solid var(--borde);background:var(--blanco)}
+.section{padding:38px 48px;position:relative;border-bottom:1px solid var(--borde);background:var(--blanco)}
 .section:nth-child(even){background:var(--fondo)}
+@media(max-width:600px){
+  .section{padding:28px 20px}
+  .names{font-size:42px}
+  .hero{padding:48px 24px 40px}
+  .mensaje-section{padding:36px 24px 30px}
+  .footer{padding:24px 20px}
+  .countdown-grid{gap:6px}
+  .count-number{font-size:28px}
+  .info-grid{grid-template-columns:1fr}
+  .outfit-grid{grid-template-columns:1fr 1fr}
+  .detail-val{font-size:15px}
+  .carrete-slide img{height:260px!important}
+  .invitation{padding:0!important}
+  .card{box-shadow:none}
+}
 .section-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--azul-med);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--borde),transparent)}
 
