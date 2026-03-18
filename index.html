@@ -471,6 +471,8 @@ video{display:none!important}
           <span class="carrete-dot" onclick="irASlide(1)"></span>
           <span class="carrete-dot" onclick="irASlide(2)"></span>
           <span class="carrete-dot" onclick="irASlide(3)"></span>
+          <span class="carrete-dot" onclick="irASlide(4)"></span>
+          <span class="carrete-dot" onclick="irASlide(5)"></span>
         </div>
       </div>
       <p style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto);line-height:1.75;text-align:center;margin-top:22px">Dos corazones que encontraron en el otro su lugar en el mundo. Hoy damos el paso más hermoso de nuestra vida.</p>
@@ -547,7 +549,7 @@ video{display:none!important}
 <script>
 // ── Carrete de fotos ──
 let slideActual = 0;
-const totalSlides = 4;
+const totalSlides = 6;
 function moverCarrete(dir) {
   slideActual = (slideActual + dir + totalSlides) % totalSlides;
   actualizarCarrete();
