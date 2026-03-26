@@ -709,7 +709,7 @@ function updateCD() {
   document.getElementById('cd-mins').textContent = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
   document.getElementById('cd-secs').textContent = String(Math.floor((d%60000)/1000)).padStart(2,'0');
 }
-updateCD(); setInterval(updateCD, 1000);
+setTimeout(() => { updateCD(); setInterval(updateCD, 1000); }, 100);
 
 // ── Outfit tabs ──
 function showTab(tab, btn) {
