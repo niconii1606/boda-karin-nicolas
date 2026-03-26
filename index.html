@@ -335,15 +335,13 @@ video{display:none!important}
     </div>
 
     <!-- Ticket inferior -->
-    <div class="ticket-bottom">
-      <div class="barcode">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span>
-      </div>
-      <div class="ticket-info">
-        <div class="ticket-name" id="ticketName">Invitado especial</div>
-        <div class="ticket-cupos" id="ticketCupos">★ &nbsp;Entrada VIP&nbsp; ★</div>
+    <div class="ticket-bottom" style="padding:14px 18px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:18px;color:#d4b86a">★</div>
+        <div>
+          <div class="ticket-name" id="ticketName" style="font-style:italic">Invitado especial</div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;color:var(--texto2);margin-top:2px">BODA KARIN & NICOLAS</div>
+        </div>
       </div>
     </div>
   </div>
@@ -645,7 +643,7 @@ if (guestName) {
   document.getElementById('guestGreeting').style.display = 'block';
 }
 if (guestCupos) {
-  document.getElementById('ticketCupos').textContent = 'Cupo(s) \u00a0__' + guestCupos + '__';
+  document.getElementById('ticketCupos').textContent = guestCupos;
 }
 
 // ── Abrir sobre ──
