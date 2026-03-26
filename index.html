@@ -702,7 +702,7 @@ function confirmarWhatsApp() {}
 
 // ── Countdown ──
 function updateCD() {
-  const d = new Date('2026-12-12T17:00:00-05:00') - new Date();
+  const d = new Date(2026, 11, 12, 17, 0, 0) - new Date();
   if (d <= 0) return;
   document.getElementById('cd-days').textContent = String(Math.floor(d/86400000)).padStart(3,'0');
   document.getElementById('cd-hours').textContent = String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
