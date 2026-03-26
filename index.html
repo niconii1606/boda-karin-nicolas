@@ -641,8 +641,7 @@ if (guestName) {
 }
 if (guestCupos) {
   const el = document.getElementById('ticketCupos');
-  el.textContent = 'CUPOS: ' + guestCupos;
-  el.style.display = 'block';
+  if (el) { el.textContent = 'CUPOS: ' + guestCupos; el.style.display = 'block'; }
 }
 
 // ── Abrir sobre ──
