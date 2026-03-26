@@ -634,8 +634,10 @@ const guestCupos = params.get('c') ? decodeURIComponent(params.get('c')) : '';
 if (guestName) {
   document.getElementById('guestNameEnv').textContent = guestName;
   document.getElementById('ticketName').textContent = guestName;
-  document.getElementById('guestNameCard').textContent = guestName;
-  document.getElementById('guestGreeting').style.display = 'block';
+  const card = document.getElementById('guestNameCard');
+  if (card) card.textContent = guestName;
+  const greeting = document.getElementById('guestGreeting');
+  if (greeting) greeting.style.display = 'block';
 }
 if (guestCupos) {
   const el = document.getElementById('ticketCupos');
