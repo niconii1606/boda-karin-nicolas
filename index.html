@@ -634,7 +634,9 @@ if (guestName) {
   document.getElementById('guestGreeting').style.display = 'block';
 }
 if (guestCupos) {
-  document.getElementById('ticketCupos').textContent = guestCupos;
+  const el = document.getElementById('ticketCupos');
+  el.textContent = 'CUPOS: ' + guestCupos;
+  el.style.display = 'block';
 }
 
 // ── Abrir sobre ──
