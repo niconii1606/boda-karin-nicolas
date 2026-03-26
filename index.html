@@ -295,6 +295,7 @@ video{display:none!important}
 
       <!-- Título Hollywood -->
       <div style="font-family:'Jost',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);opacity:0.8;margin-bottom:6px">Una invitación exclusiva</div>
+      <div id="ticketCupos" style="font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:#d4b86a;margin-top:2px;display:none">CUPOS: —</div>
 
       <!-- Estrella grande central -->
       <div style="margin:8px auto 4px">
@@ -628,6 +629,7 @@ setInterval(() => moverCarrete(1), 4000);
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get('n') ? decodeURIComponent(params.get('n')) : '';
 const guestCupos = params.get('c') ? decodeURIComponent(params.get('c')) : '';
+
 
 if (guestName) {
   document.getElementById('guestNameEnv').textContent = guestName;
