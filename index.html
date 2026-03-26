@@ -339,13 +339,16 @@ video{display:none!important}
       <div style="font-size:16px;color:#d4b86a;flex-shrink:0">★</div>
       <div style="text-align:center;flex:1;padding:0 12px">
         <div class="ticket-name" id="ticketName" style="font-style:italic;font-size:15px">Invitado especial</div>
-        <div style="font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:var(--texto2);margin-top:3px">Entrada VIP</div>
+        <div style="font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:var(--texto2);margin-top:3px">ENTRADA VIP</div>
         <div id="ticketCupos" style="font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:#d4b86a;margin-top:2px;display:none">CUPOS: —</div>
       </div>
       <div style="font-size:16px;color:#d4b86a;flex-shrink:0">★</div>
     </div>
   </div>
 
+  <div class="open-hint">
+    <p>✦ Toca para abrir tu invitación ✦</p>
+  </div>
 </div>
 
 <!-- MODAL RSVP -->
@@ -414,6 +417,12 @@ video{display:none!important}
           <text x="430" y="70" font-size="14" fill="#d4b86a" opacity="0.4">★</text>
         </g>
       </svg>
+    </div>
+
+    <!-- Saludo personalizado -->
+    <div class="guest-greeting" id="guestGreeting" style="display:none">
+      <div class="guest-greeting-to">Una invitación especial para</div>
+      <div class="guest-greeting-name" id="guestNameCard"></div>
     </div>
 
     <!-- Banner activar música (solo si Chrome lo bloqueó) -->
