@@ -343,7 +343,7 @@ video{display:none!important}
       </div>
       <div class="ticket-info">
         <div class="ticket-name" id="ticketName">Invitado especial</div>
-        <div class="ticket-cupos">★ &nbsp;Entrada VIP&nbsp; ★</div>
+        <div class="ticket-cupos" id="ticketCupos">★ &nbsp;Entrada VIP&nbsp; ★</div>
       </div>
     </div>
   </div>
@@ -636,12 +636,16 @@ setInterval(() => moverCarrete(1), 4000);
 // Uso: index.html?n=Juan%20y%20Maria
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get('n') ? decodeURIComponent(params.get('n')) : '';
+const guestCupos = params.get('c') ? decodeURIComponent(params.get('c')) : '';
 
 if (guestName) {
   document.getElementById('guestNameEnv').textContent = guestName;
   document.getElementById('ticketName').textContent = guestName;
   document.getElementById('guestNameCard').textContent = guestName;
   document.getElementById('guestGreeting').style.display = 'block';
+}
+if (guestCupos) {
+  document.getElementById('ticketCupos').textContent = 'Cupo(s) \u00a0__' + guestCupos + '__';
 }
 
 // ── Abrir sobre ──
