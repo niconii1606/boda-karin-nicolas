@@ -7,8 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Paleta boho floral verde — inspirada en referencia chungdoi.com,
-     nombres de variables heredados (azul/oro), valores en salvia + dorado champán + crema */
+  /* Paleta boho floral verde — salvia + dorado champán + crema */
   --azul:      #8FA37E;
   --azul-osc:  #5E7752;
   --azul-med:  #A8BF97;
@@ -106,6 +105,20 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 
 /* HERO */
 .hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#3E5233 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
+
+/* HERO con foto de pareja */
+.hero-photo{position:relative;height:320px;overflow:hidden;background:var(--azul-suave)}
+.hero-photo-img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-curve{position:absolute;bottom:-1px;left:0;width:100%;height:56px;display:block}
+.hero-info{text-align:center;padding:22px 40px 30px;background:var(--fondo)}
+.hero-date-pill{display:inline-block;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:3px;color:var(--texto2);background:var(--azul-suave);padding:6px 20px;border-radius:20px;margin-bottom:16px}
+.hero-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--texto);letter-spacing:0.5px;line-height:1.1}
+.ampersand-sm{color:var(--azul);font-style:italic;font-weight:400;margin:0 6px}
+.hero-quote{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--texto2);margin-top:4px;line-height:1.6}
+@media(max-width:600px){
+  .hero-photo{height:260px}
+  .hero-names{font-size:34px}
+}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,185,140,0.15) 0%,transparent 60%)}
 .botanical-top{position:absolute;top:0;left:0;right:0;height:130px;opacity:0.5}
 .botanical-bottom{position:absolute;bottom:0;left:0;right:0;height:110px;opacity:0.4;transform:scaleY(-1)}
@@ -134,7 +147,8 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
   .mensaje-section{padding:36px 24px 30px}
   .footer{padding:24px 20px}
   .countdown-grid{gap:6px}
-  .count-number{font-size:28px}
+  .count-number{font-size:22px}
+  .countdown-circle{width:210px;height:210px}
   .info-grid{grid-template-columns:1fr}
   .outfit-grid{grid-template-columns:1fr 1fr}
   .detail-val{font-size:15px}
@@ -172,12 +186,16 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .oro-sep::before,.oro-sep::after{content:'';flex:1;height:0.5px;background:linear-gradient(90deg,transparent,var(--oro-linea),transparent)}
 .oro-diamond{width:5px;height:5px;background:var(--oro-linea);transform:rotate(45deg);flex-shrink:0}
 
-/* COUNTDOWN */
-.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
-.count-box{text-align:center;background:var(--azul);padding:16px 8px 11px;position:relative}
-.count-box::before{content:'';position:absolute;inset:3px;border:0.5px solid rgba(212,185,140,0.4)}
-.count-number{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--oro-claro);line-height:1;display:block}
-.count-label{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-top:5px}
+/* COUNTDOWN — anillo circular */
+.countdown-circle{position:relative;width:250px;height:250px;margin:0 auto;border-radius:50%;border:1px solid var(--oro-linea);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;background:var(--fondo)}
+.countdown-circle::before{content:'';position:absolute;inset:9px;border-radius:50%;border:1px solid var(--borde)}
+.countdown-falta{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--texto);margin-bottom:14px;position:relative;z-index:1}
+.countdown-heart{position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:var(--fondo);border:1px solid var(--oro-linea);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:12px;z-index:2}
+.countdown-grid{display:flex;gap:12px;margin-top:0;position:relative;z-index:1}
+.count-box{text-align:center;background:transparent;padding:0;position:relative}
+.count-box::before{display:none}
+.count-number{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--azul);line-height:1;display:block}
+.count-label{font-family:'Jost',sans-serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);display:block;margin-top:5px}
 
 /* DETALLES */
 .detail-row{display:flex;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:0.5px solid var(--borde)}
@@ -412,37 +430,21 @@ video{display:none!important}
     <div class="border-frame"></div>
 
     <!-- HERO -->
-    <div class="hero" style="background:linear-gradient(160deg,rgba(94,119,82,0.82) 0%,rgba(143,163,126,0.78) 55%,rgba(168,191,151,0.8) 100%),url('londres1.jpg') center center / cover no-repeat">
-      <!-- Estrellas decorativas top -->
-      <svg class="botanical-top" viewBox="0 0 480 120" fill="none">
-        <g opacity="0.6">
-          <text x="30" y="50" font-size="18" fill="#D4B98C" opacity="0.5">❀</text>
-          <text x="80" y="30" font-size="10" fill="#D4B98C" opacity="0.35">❀</text>
-          <text x="150" y="55" font-size="14" fill="#D4B98C" opacity="0.4">❀</text>
-          <text x="240" y="25" font-size="22" fill="#D4B98C" opacity="0.3">❀</text>
-          <text x="330" y="55" font-size="12" fill="#D4B98C" opacity="0.4">❀</text>
-          <text x="400" y="35" font-size="16" fill="#D4B98C" opacity="0.35">❀</text>
-          <text x="450" y="60" font-size="10" fill="#D4B98C" opacity="0.3">❀</text>
-          <line x1="0" y1="70" x2="480" y2="70" stroke="#D4B98C" stroke-width="0.5" opacity="0.2"/>
-        </g>
-      </svg>
-      <span class="save-the-date fade-in">❀ &nbsp;Nos casamos&nbsp; ❀</span>
-      <div class="names fade-in" style="animation-delay:0.2s">Karin<span class="ampersand">&</span>Nicolas</div>
-      <div class="divider-ornament fade-in" style="animation-delay:0.4s"><div class="diamond"></div></div>
-      <div class="date-hero fade-in" style="animation-delay:0.5s">12 · 12 · 2026</div>
-      <span class="year-big">2026</span>
-      <!-- Estrellas decorativas bottom -->
-      <svg class="botanical-bottom" viewBox="0 0 480 100" fill="none">
-        <g opacity="0.6">
-          <line x1="0" y1="30" x2="480" y2="30" stroke="#D4B98C" stroke-width="0.5" opacity="0.2"/>
-          <text x="20" y="70" font-size="12" fill="#D4B98C" opacity="0.4">❀</text>
-          <text x="100" y="85" font-size="8" fill="#D4B98C" opacity="0.3">❀</text>
-          <text x="200" y="75" font-size="16" fill="#D4B98C" opacity="0.35">❀</text>
-          <text x="320" y="80" font-size="10" fill="#D4B98C" opacity="0.3">❀</text>
-          <text x="430" y="70" font-size="14" fill="#D4B98C" opacity="0.4">❀</text>
-        </g>
-      </svg>
+    <div class="hero-photo">
+      <img src="portada-pareja.jpg" alt="Karin y Nicolas" class="hero-photo-img">
+      <svg class="hero-curve" viewBox="0 0 500 60" preserveAspectRatio="none"><path d="M0,60 C125,4 375,4 500,60 L500,60 L0,60 Z" fill="var(--fondo)"/></svg>
     </div>
+    <div class="hero-info">
+      <div class="hero-date-pill">12 · 12 · 2026</div>
+      <div class="hero-names">Karin <span class="ampersand-sm">&amp;</span> Nicolas</div>
+      <svg width="60" height="14" viewBox="0 0 60 14" fill="none" style="margin:10px auto;display:block">
+        <line x1="0" y1="7" x2="22" y2="7" stroke="var(--oro-linea)" stroke-width="0.8"/>
+        <text x="30" y="11" text-anchor="middle" font-size="10" fill="var(--oro-linea)">❀</text>
+        <line x1="38" y1="7" x2="60" y2="7" stroke="var(--oro-linea)" stroke-width="0.8"/>
+      </svg>
+      <p class="hero-quote">"El mejor capítulo está por comenzar"</p>
+    </div>
+
 
 
     <!-- Banner activar música (solo si Chrome lo bloqueó) -->
@@ -473,13 +475,16 @@ video{display:none!important}
     <div class="oro-sep"><div class="oro-diamond"></div></div>
 
     <!-- COUNTDOWN -->
-    <div class="section">
-      <div class="section-label">Cuenta regresiva</div>
-      <div class="countdown-grid">
-        <div class="count-box"><span class="count-number" id="cd-days">000</span><span class="count-label">Días</span></div>
-        <div class="count-box"><span class="count-number" id="cd-hours">00</span><span class="count-label">Horas</span></div>
-        <div class="count-box"><span class="count-number" id="cd-mins">00</span><span class="count-label">Min</span></div>
-        <div class="count-box"><span class="count-number" id="cd-secs">00</span><span class="count-label">Seg</span></div>
+    <div class="section" style="text-align:center">
+      <div class="countdown-circle">
+        <div class="countdown-falta">Falta</div>
+        <div class="countdown-grid">
+          <div class="count-box"><span class="count-number" id="cd-days">000</span><span class="count-label">Días</span></div>
+          <div class="count-box"><span class="count-number" id="cd-hours">00</span><span class="count-label">Hrs</span></div>
+          <div class="count-box"><span class="count-number" id="cd-mins">00</span><span class="count-label">Min</span></div>
+          <div class="count-box"><span class="count-number" id="cd-secs">00</span><span class="count-label">Seg</span></div>
+        </div>
+        <div class="countdown-heart">♥</div>
       </div>
     </div>
 
