@@ -299,10 +299,25 @@ video{display:none!important}
 .wave-dot.playing:nth-child(2){animation-delay:0.15s}
 .wave-dot.playing:nth-child(3){animation-delay:0.3s}
 .wave-dot.playing:nth-child(4){animation-delay:0.15s}
-.fade-in{animation:fadeUp 0.9s ease forwards}
+.fade-in{animation:fadeUp 0.9s ease forwards}/* ══════════════════════════════
+   HOJAS CAYENDO (efecto ambiental)
+══════════════════════════════ */
+.falling-leaves{position:fixed;inset:0;pointer-events:none;z-index:1001;overflow:hidden}
+.leaf-particle{position:absolute;top:-40px;display:block;opacity:0;animation:leafFall linear infinite}
+.leaf-particle svg{display:block;filter:drop-shadow(0 2px 3px rgba(36,61,24,0.15))}
+@keyframes leafFall{
+  0%{transform:translate(0,0) rotate(0deg);opacity:0}
+  8%{opacity:0.85}
+  50%{transform:translate(24px,55vh) rotate(160deg);opacity:0.85}
+  92%{opacity:0.7}
+  100%{transform:translate(-18px,115vh) rotate(320deg);opacity:0}
+}
 </style>
 </head>
 <body>
+
+<!-- Hojas cayendo (efecto ambiental) -->
+<div class="falling-leaves" id="fallingLeaves"></div>
 
 <!-- Audio de fondo -->
 <audio id="bgAudio" src="cancion.mp3" loop preload="auto"></audio>
@@ -713,6 +728,33 @@ video{display:none!important}
 </div>
 
 <script>
+// ── Hojas cayendo (efecto ambiental) ──
+(function(){
+  const container = document.getElementById('fallingLeaves');
+  const leafSVG = (color) => `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 1c4 2 6 5 6 8a6 6 0 0 1-12 0c0-3 2-6 6-8z" fill="${color}"/>
+    <path d="M8 1v14" stroke="rgba(0,0,0,0.15)" stroke-width="0.6"/>
+  </svg>`;
+  const colors = ['#3B5C2E', '#7C9A6B', '#D4AF6A', '#243D18'];
+  const total = 16;
+  for (let i = 0; i < total; i++) {
+    const leaf = document.createElement('span');
+    leaf.className = 'leaf-particle';
+    const size = 10 + Math.random() * 10;
+    const left = Math.random() * 100;
+    const duration = 12 + Math.random() * 10;
+    const delay = Math.random() * 20;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    leaf.style.left = left + 'vw';
+    leaf.style.width = size + 'px';
+    leaf.style.height = size + 'px';
+    leaf.style.animationDuration = duration + 's';
+    leaf.style.animationDelay = '-' + delay + 's';
+    leaf.innerHTML = leafSVG(color);
+    container.appendChild(leaf);
+  }
+})();
+
 // ── Carrete de fotos ──
 let slideActual = 0;
 const totalSlides = 6;
