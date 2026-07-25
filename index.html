@@ -128,6 +128,30 @@ body{background:#FDFBF6;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .hero-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--texto);letter-spacing:0.5px;line-height:1.1}
 .ampersand-sm{color:var(--azul);font-style:italic;font-weight:400;margin:0 6px}
 .hero-quote{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--texto2);margin-top:4px;line-height:1.6}
+
+/* Estilo "papel + rama + cita grande" inspirado en referencia real */
+.hero-info-textured{
+  position:relative;
+  padding-top:56px;
+  background-color:var(--fondo);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(94,119,82,0.05) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(212,185,140,0.08) 0, transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35  0 0 0 0 0.30  0 0 0 0 0.20  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-branch{width:130px;height:auto;display:block;margin:0 auto 6px}
+.hero-flower-real{width:150px;height:auto;display:block;margin:0 auto 14px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.hero-names-big{font-family:'Dancing Script',cursive;font-size:52px;font-weight:700;color:var(--azul-osc);line-height:1;margin-top:10px}
+.ampersand-circle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--azul);color:var(--blanco);font-family:'Jost',sans-serif;font-size:20px;font-weight:500;vertical-align:middle;margin:0 4px;transform:translateY(-4px)}
+.hero-quote-wrap{max-width:280px;margin:26px auto 0;text-align:center;position:relative}
+.quote-mark{font-family:Georgia,serif;font-size:40px;color:var(--azul-med);line-height:0.5;display:block}
+.quote-open{margin-bottom:6px}
+.quote-close{margin-top:10px;transform:scaleX(-1) scaleY(-1);display:inline-block}
+.hero-quote-big{font-family:'Jost',sans-serif;font-size:15px;color:var(--texto2);line-height:1.6;margin:0}
+@media(max-width:600px){
+  .hero-names-big{font-size:40px}
+  .ampersand-circle{width:36px;height:36px;font-size:16px}
+}
 @media(max-width:600px){
   .hero-photo{height:260px}
   .hero-names{font-size:34px}
@@ -451,15 +475,15 @@ video{display:none!important}
       <img src="portada-pareja.jpg" alt="Karin y Nicolas" class="hero-photo-img" onerror="this.style.opacity='0'">
       <svg class="hero-curve" viewBox="0 0 500 60" preserveAspectRatio="none"><path d="M0,60 C125,4 375,4 500,60 L500,60 L0,60 Z" fill="var(--fondo)"/></svg>
     </div>
-    <div class="hero-info">
+    <div class="hero-info hero-info-textured">
+      <img src="flowers.jpg" alt="" class="hero-flower-real" onerror="this.style.display='none'">
       <div class="hero-date-pill">12 · 12 · 2026</div>
-      <div class="hero-names">Karin <span class="ampersand-sm">&amp;</span> Nicolas</div>
-      <svg width="60" height="14" viewBox="0 0 60 14" fill="none" style="margin:10px auto;display:block">
-        <line x1="0" y1="7" x2="22" y2="7" stroke="var(--oro-linea)" stroke-width="0.8"/>
-        <text x="30" y="11" text-anchor="middle" font-size="10" fill="var(--oro-linea)">❀</text>
-        <line x1="38" y1="7" x2="60" y2="7" stroke="var(--oro-linea)" stroke-width="0.8"/>
-      </svg>
-      <p class="hero-quote">"El mejor capítulo está por comenzar"</p>
+      <div class="hero-names-big">Karin <span class="ampersand-circle">&amp;</span> Nicolas</div>
+      <div class="hero-quote-wrap">
+        <span class="quote-mark quote-open">&ldquo;</span>
+        <p class="hero-quote-big">El mejor capítulo está<br>por comenzar</p>
+        <span class="quote-mark quote-close">&rdquo;</span>
+      </div>
     </div>
 
 
