@@ -316,14 +316,14 @@ video{display:none!important}
 </head>
 <body>
 
-<!-- Hojas cayendo (efecto ambiental) -->
-<div class="falling-leaves" id="fallingLeaves"></div>
-
 <!-- Audio de fondo -->
 <audio id="bgAudio" src="cancion.mp3" loop preload="auto"></audio>
 
 <!-- ══ PANTALLA DEL SOBRE ══ -->
 <div class="envelope-screen" id="envelopeScreen">
+
+  <!-- Hojas cayendo (solo en la pantalla del sobre) -->
+  <div class="falling-leaves" id="fallingLeaves"></div>
 
   <div class="envelope-wrap" onclick="openEnvelope()">
 
