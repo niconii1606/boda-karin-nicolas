@@ -9,10 +9,10 @@
 :root{
   /* Paleta azul cielo apagado y dorado — elegante y luminosa,
      nombres de variables heredados (azul/oro), valores en azul claro + dorado + marfil */
-  --azul:      #7C93C4;
-  --azul-osc:  #5A6F9C;
-  --azul-med:  #9DB0D4;
-  --azul-suave:#EEF1F8;
+  --azul:      #3B5C2E;
+  --azul-osc:  #243D18;
+  --azul-med:  #7C9A6B;
+  --azul-suave:#EEF3E6;
   --oro:       #D4AF6A;
   --oro-medio: #C9A66B;
   --oro-claro: #F0E4C4;
@@ -20,19 +20,19 @@
   --verde:     #D4AF6A;
   --verde-suave:#e8ecf4;
   --blanco:    #ffffff;
-  --fondo:     #F7F4EC;
-  --texto:     #1F2A44;
-  --texto2:    #5A6478;
-  --borde:     #DDE2ED;
+  --fondo:     #F7F4E7;
+  --texto:     #1F3D12;
+  --texto2:    #5A6B4A;
+  --borde:     #E1E6D5;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{overflow-x:hidden;width:100%}
-body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
+body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
 
 /* ══════════════════════════════
    PANTALLA DEL SOBRE (inicio) — ref. imagen 1 + ticket imagen 2
 ══════════════════════════════ */
-.envelope-screen{position:fixed;inset:0;background:linear-gradient(160deg,#7C93C4 0%,#5A6F9C 55%,#3A4E7A 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
+.envelope-screen{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,#F7F4E7 0%,#EEF3E6 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
 .envelope-screen > *{position:relative;z-index:1}
 .envelope-screen.hiding{opacity:0;transform:scale(0.97);pointer-events:none}
 .envelope-screen.hidden{display:none}
@@ -41,7 +41,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .envelope-wrap:hover{transform:translateY(-3px)}
 
 /* Marco dorado — invitación boho (imagen 1) */
-.envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(212,185,140,0.55);border-radius:16px;position:relative;background:rgba(58,78,122,0.2);backdrop-filter:blur(2px)}
+.envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(36,61,24,0.35);border-radius:16px;position:relative;background:rgba(255,255,255,0.35)}
 .envelope-frame::before{content:'';position:absolute;inset:7px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
 .env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(calc(-50% + 17px),calc(-50% + 10px));background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
 .env-corner-branch{position:absolute;width:110px;height:110px;background-image:url('esquina-dorada.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;opacity:0.95}
@@ -53,7 +53,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .envelope-inner{padding:28px 22px 8px;text-align:center;position:relative;z-index:2}
 
 /* Encabezado */
-.env-eyebrow{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);opacity:0.92}
+.env-eyebrow{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--azul-osc);opacity:0.85}
 .env-eyebrow-divider{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px auto 22px}
 .env-eyebrow-divider::before,.env-eyebrow-divider::after{content:'';width:28px;height:1px;background:var(--oro-linea);opacity:0.55}
 .env-eyebrow-divider svg{display:block}
@@ -62,18 +62,18 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-monogram-wrap{margin:0 auto 26px;width:158px;height:158px;position:relative}
 
 /* Nombres */
-.env-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--blanco);letter-spacing:0.5px;line-height:1.1}
+.env-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--azul-osc);letter-spacing:0.5px;line-height:1.1}
 .env-names .amp{color:var(--oro);font-style:italic;font-weight:300}
-.env-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--oro-claro);opacity:0.88;margin-top:10px;line-height:1.55}
+.env-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--texto2);opacity:1;margin-top:10px;line-height:1.55}
 
 /* Fecha apilada */
 .env-date-block{margin:24px 0 26px}
 .env-date-line{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
 .env-date-line::before,.env-date-line::after{content:'';flex:1;max-width:42px;height:1px;background:var(--oro-linea);opacity:0.5}
-.env-date-day{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro);opacity:0.88}
-.env-date-num{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:var(--blanco);line-height:1;margin:2px 0}
-.env-date-month{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);margin-top:2px}
-.env-date-year{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;color:var(--oro-claro);opacity:0.8;margin-top:8px}
+.env-date-day{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--azul-osc);opacity:0.85}
+.env-date-num{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:var(--azul-osc);line-height:1;margin:2px 0}
+.env-date-month{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--azul-osc);margin-top:2px}
+.env-date-year{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;color:var(--azul-osc);opacity:0.7;margin-top:8px}
 .env-date-ornament{margin-top:10px;display:flex;justify-content:center}
 
 /* Botón ornamental */
@@ -84,8 +84,8 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-open-corner-bl,.env-open-corner-br{position:absolute;width:10px;height:10px;border:1px solid var(--oro-linea);pointer-events:none}
 .env-open-corner-bl{bottom:0;left:0;border-right:none;border-top:none}
 .env-open-corner-br{bottom:0;right:0;border-left:none;border-top:none}
-.env-open-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(212,185,140,0.45);color:var(--oro-claro);font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:13px 28px;cursor:pointer;transition:all 0.25s}
-.env-open-btn:hover{background:rgba(212,185,140,0.1)}
+.env-open-btn{display:inline-flex;align-items:center;gap:10px;background:var(--azul-osc);border:1px solid var(--azul-osc);color:#F7F4E7;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:13px 28px;border-radius:24px;cursor:pointer;transition:all 0.25s}
+.env-open-btn:hover{background:var(--azul)}
 
 /* Ticket blanco inferior (imagen 2) */
 .ticket-bottom{background:var(--blanco);border-radius:0 0 16px 16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -105,7 +105,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 /* ══════════════════════════════
    ANIMACIÓN DE APERTURA
 ══════════════════════════════ */
-.opening-overlay{position:fixed;inset:0;background:#F2EEE3;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
+.opening-overlay{position:fixed;inset:0;background:#F3F0E3;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
 .opening-overlay.active{opacity:1;pointer-events:all}
 
 /* ══════════════════════════════
@@ -113,14 +113,14 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 ══════════════════════════════ */
 .invitation{display:none;min-height:100vh;padding:40px 16px;justify-content:center}
 .invitation.visible{display:flex}
-.card{max-width:480px;width:100%;background:var(--fondo);position:relative;overflow:hidden;box-shadow:0 24px 70px rgba(90,111,156,0.25);animation:slideUp 0.8s ease forwards}
+.card{max-width:480px;width:100%;background:var(--fondo);position:relative;overflow:hidden;box-shadow:0 24px 70px rgba(59,92,46,0.25);animation:slideUp 0.8s ease forwards}
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 .border-frame{display:none}
 .border-frame::before{content:'';position:absolute;inset:5px;border:0.5px solid rgba(212,185,140,0.3)}
 
 /* HERO */
-.hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#3A4E7A 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#14260C 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,185,140,0.15) 0%,transparent 60%)}
 .botanical-top{position:absolute;top:0;left:0;right:0;height:130px;opacity:0.5}
 .botanical-bottom{position:absolute;bottom:0;left:0;right:0;height:110px;opacity:0.4;transform:scaleY(-1)}
@@ -207,7 +207,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .detail-key{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#D4AF6A;margin-bottom:4px}
 .detail-val{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--texto);line-height:1.45}
 .detail-sub{font-size:14px;color:var(--texto2)}
-.map-btn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#D4AF6A;color:#F7F4EC;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:1px;padding:8px 18px;text-decoration:none;transition:background 0.2s}
+.map-btn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#D4AF6A;color:#F7F4E7;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:1px;padding:8px 18px;text-decoration:none;transition:background 0.2s}
 .map-btn:hover{background:var(--azul-med)}
 
 /* DRESS CODE */
@@ -254,9 +254,9 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .rsvp-btn:hover{background:var(--azul-med)}
 
 /* MODAL */
-.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(90,111,156,0.75);z-index:500;align-items:center;justify-content:center;padding:20px}
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(59,92,46,0.75);z-index:500;align-items:center;justify-content:center;padding:20px}
 .modal-backdrop.open{display:flex}
-.modal{background:var(--blanco);max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(90,111,156,0.3)}
+.modal{background:var(--blanco);max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(59,92,46,0.3)}
 .modal-header{background:var(--azul);padding:20px 24px 16px;position:relative}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--blanco)}
 .modal-close{position:absolute;top:14px;right:14px;width:28px;height:28px;background:rgba(201,166,107,0.15);border:none;cursor:pointer;color:var(--oro-claro);font-size:16px;display:flex;align-items:center;justify-content:center}
@@ -331,7 +331,7 @@ video{display:none!important}
           <div class="env-monogram-frame" aria-hidden="true"></div>
           <svg width="158" height="158" viewBox="0 0 158 158" fill="none" aria-hidden="true" style="position:relative;z-index:1">
             <circle cx="79" cy="79" r="46" fill="none" stroke="#D4B98C" stroke-width="0.8" opacity="0.65"/>
-            <text x="79" y="90" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" fill="#F7F4EC" font-weight="400">K<tspan fill="#D4AF6A" font-style="italic">&amp;</tspan>N</text>
+            <text x="79" y="90" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" fill="#243D18" font-weight="400">K<tspan fill="#D4AF6A" font-style="italic">&amp;</tspan>N</text>
           </svg>
         </div>
 
@@ -397,10 +397,10 @@ video{display:none!important}
 
 <!-- Botón música flotante -->
 <div id="musicControl" style="position:fixed;bottom:24px;right:24px;z-index:200;display:none;flex-direction:column;align-items:center;gap:5px">
-  <button id="musicBtn" onclick="toggleMusic()" title="Reproducir música" style="width:46px;height:46px;border-radius:50%;background:#7C93C4;border:1.5px solid #D4B98C;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(90,111,156,0.4)">
+  <button id="musicBtn" onclick="toggleMusic()" title="Reproducir música" style="width:46px;height:46px;border-radius:50%;background:#3B5C2E;border:1.5px solid #D4B98C;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(59,92,46,0.4)">
     <svg width="15" height="17" viewBox="0 0 15 17" fill="#F0E4C4"><path d="M1 1l13 7.5L1 16V1z"/></svg>
   </button>
-  <button id="pauseBtn" onclick="toggleMusic()" title="Pausar música" style="width:46px;height:46px;border-radius:50%;background:#7C93C4;border:1.5px solid #D4B98C;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(90,111,156,0.4)">
+  <button id="pauseBtn" onclick="toggleMusic()" title="Pausar música" style="width:46px;height:46px;border-radius:50%;background:#3B5C2E;border:1.5px solid #D4B98C;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(59,92,46,0.4)">
     <svg width="13" height="15" viewBox="0 0 13 15" fill="#F0E4C4"><rect x="0" y="0" width="4" height="15" rx="1"/><rect x="7" y="0" width="4" height="15" rx="1"/></svg>
   </button>
   <div style="display:flex;gap:2px;align-items:flex-end;height:12px">
@@ -418,7 +418,7 @@ video{display:none!important}
     <div class="border-frame"></div>
 
     <!-- HERO -->
-    <div class="hero" style="background:linear-gradient(160deg,rgba(90,111,156,0.78) 0%,rgba(124,147,196,0.72) 55%,rgba(157,176,212,0.75) 100%),url('londres1.jpg') center center / cover no-repeat">
+    <div class="hero" style="background:linear-gradient(160deg,rgba(59,92,46,0.78) 0%,rgba(124,154,107,0.72) 55%,rgba(124,154,107,0.75) 100%),url('londres1.jpg') center center / cover no-repeat">
       <!-- Estrellas decorativas top -->
       <svg class="botanical-top" viewBox="0 0 480 120" fill="none">
         <g opacity="0.6">
@@ -452,7 +452,7 @@ video{display:none!important}
 
 
     <!-- Banner activar música (solo si Chrome lo bloqueó) -->
-    <div id="musicBanner" style="display:none;background:#5A6F9C;padding:10px 24px;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(212,185,140,0.2)">
+    <div id="musicBanner" style="display:none;background:#243D18;padding:10px 24px;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(212,185,140,0.2)">
       <span style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,166,107,0.7)">♪ Toca para activar la música</span>
       <button onclick="activateMusic()" style="background:rgba(212,185,140,0.15);border:1px solid #D4B98C;color:#F0E4C4;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;cursor:pointer">Activar</button>
     </div>
@@ -577,8 +577,8 @@ video{display:none!important}
           <div class="carrete-slide"><img src="peru1.jpg" alt="Karin y Nicolas" style="width:100%;height:300px;object-fit:cover;display:block"></div>
           <div class="carrete-slide"><img src="santorini1.jpg" alt="Karin y Nicolas" style="width:100%;height:300px;object-fit:cover;display:block"></div>
         </div>
-        <button onclick="moverCarrete(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(90,111,156,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">‹</button>
-        <button onclick="moverCarrete(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(90,111,156,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">›</button>
+        <button onclick="moverCarrete(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(59,92,46,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">‹</button>
+        <button onclick="moverCarrete(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(59,92,46,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">›</button>
         <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px">
           <span class="carrete-dot active" onclick="irASlide(0)"></span>
           <span class="carrete-dot" onclick="irASlide(1)"></span>
@@ -606,10 +606,10 @@ video{display:none!important}
       <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.7;margin-bottom:20px">Tonos suaves y elegantes: tonos pasteles.</p>
 
       <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#F7F4EC;border:1.5px solid #c8b8a2"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#F7F4E7;border:1.5px solid #c8b8a2"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#f5e590;border:1.5px solid #d4c060"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#9DB0D4;border:1.5px solid #5A6F9C"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#D4AF6A;border:1.5px solid #3A4E7A"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#7C9A6B;border:1.5px solid #243D18"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#D4AF6A;border:1.5px solid #14260C"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
       </div>
 
       <!-- Colores a evitar en línea -->
