@@ -2,67 +2,81 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Boda Karin & Nicolas — 12.12.2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --azul:      #8FA37E;
-  --azul-osc:  #5E7752;
-  --azul-med:  #A8BF97;
-  --azul-suave:#EEF3E8;
-  --oro:       #C7A768;
+  /* Paleta azul cielo apagado y dorado — elegante y luminosa,
+     nombres de variables heredados (azul/oro), valores en azul claro + dorado + marfil */
+  --azul:      #7C93C4;
+  --azul-osc:  #5A6F9C;
+  --azul-med:  #9DB0D4;
+  --azul-suave:#EEF1F8;
+  --oro:       #D4AF6A;
   --oro-medio: #C9A66B;
   --oro-claro: #F0E4C4;
   --oro-linea: #D4B98C;
-  --verde:     #C7A768;
-  --verde-suave:#e8ede4;
+  --verde:     #D4AF6A;
+  --verde-suave:#e8ecf4;
   --blanco:    #ffffff;
-  --fondo:     #FDFBF6;
-  --texto:     #34402E;
-  --texto2:    #6B7A5E;
-  --borde:     #E3EBDD;
+  --fondo:     #F7F4EC;
+  --texto:     #1F2A44;
+  --texto2:    #5A6478;
+  --borde:     #DDE2ED;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
+html{overflow-x:hidden;width:100%}
+body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
 
 /* ══════════════════════════════
-   PANTALLA DEL SOBRE (inicio)
+   PANTALLA DEL SOBRE (inicio) — ref. imagen 1 + ticket imagen 2
 ══════════════════════════════ */
-.envelope-screen{position:fixed;inset:0;background:url('foto.jpg') center center / cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:14px;overflow-y:auto}
-.envelope-screen::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(94,119,82,0.62) 0%,rgba(62,82,51,0.78) 50%,rgba(52,64,46,0.88) 100%);z-index:0}
+.envelope-screen{position:fixed;inset:0;background:linear-gradient(160deg,#7C93C4 0%,#5A6F9C 55%,#3A4E7A 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
 .envelope-screen > *{position:relative;z-index:1}
 .envelope-screen.hiding{opacity:0;transform:scale(0.97);pointer-events:none}
 .envelope-screen.hidden{display:none}
 
-.envelope-wrap{width:100%;max-width:300px;cursor:pointer;filter:drop-shadow(0 22px 48px rgba(0,0,0,0.32));border-radius:14px;overflow:hidden;transition:transform 0.3s;margin:auto}
+.envelope-wrap{width:100%;max-width:380px;cursor:pointer;filter:drop-shadow(0 22px 48px rgba(0,0,0,0.32));border-radius:16px;overflow:hidden;transition:transform 0.3s}
 .envelope-wrap:hover{transform:translateY(-3px)}
 
-.envelope-frame{width:100%;padding:12px 12px 20px;border:1px solid rgba(212,185,140,0.55);border-radius:14px 14px 0 0;position:relative;background:rgba(52,64,46,0.18);backdrop-filter:blur(2px)}
-.envelope-frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
+/* Marco dorado — invitación boho (imagen 1) */
+.envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(212,185,140,0.55);border-radius:16px;position:relative;background:rgba(58,78,122,0.2);backdrop-filter:blur(2px)}
+.envelope-frame::before{content:'';position:absolute;inset:7px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
+.env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(-50%,-50%);background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.env-corner-branch{position:absolute;width:110px;height:110px;background-image:url('esquina-dorada.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;opacity:0.95}
+.env-corner-branch.tl{top:4px;left:4px}
+.env-corner-branch.tr{top:4px;right:4px;transform:scaleX(-1)}
+.env-corner-branch.br{bottom:4px;right:4px;transform:rotate(180deg)}
+.env-corner-branch.bl{bottom:4px;left:4px;transform:scaleY(-1)}
 
-.envelope-inner{padding:20px 16px 6px;text-align:center;position:relative}
+.envelope-inner{padding:28px 22px 8px;text-align:center;position:relative;z-index:2}
 
-.env-eyebrow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro);opacity:0.92}
-.env-eyebrow-divider{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px auto 16px}
-.env-eyebrow-divider::before,.env-eyebrow-divider::after{content:'';width:24px;height:1px;background:var(--oro-linea);opacity:0.55}
+/* Encabezado */
+.env-eyebrow{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);opacity:0.92}
+.env-eyebrow-divider{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px auto 22px}
+.env-eyebrow-divider::before,.env-eyebrow-divider::after{content:'';width:28px;height:1px;background:var(--oro-linea);opacity:0.55}
 .env-eyebrow-divider svg{display:block}
 
-.env-monogram-wrap{margin:0 auto 14px;width:130px;height:130px;position:relative}
+/* Monograma con corona de hojas */
+.env-monogram-wrap{margin:0 auto 26px;width:158px;height:158px;position:relative}
 
-.env-names{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:var(--blanco);letter-spacing:0.5px;line-height:1.1}
+/* Nombres */
+.env-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--blanco);letter-spacing:0.5px;line-height:1.1}
 .env-names .amp{color:var(--oro);font-style:italic;font-weight:300}
-.env-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--oro-claro);opacity:0.88;margin-top:7px;line-height:1.5}
+.env-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--oro-claro);opacity:0.88;margin-top:10px;line-height:1.55}
 
-.env-date-block{margin:16px 0 16px}
-.env-date-line{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1px}
-.env-date-line::before,.env-date-line::after{content:'';flex:1;max-width:36px;height:1px;background:var(--oro-linea);opacity:0.5}
-.env-date-day{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--oro-claro);opacity:0.88}
-.env-date-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--blanco);line-height:1;margin:1px 0}
-.env-date-month{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro);margin-top:1px}
-.env-date-year{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;color:var(--oro-claro);opacity:0.8;margin-top:6px}
-.env-date-ornament{margin-top:8px;display:flex;justify-content:center}
+/* Fecha apilada */
+.env-date-block{margin:24px 0 26px}
+.env-date-line{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
+.env-date-line::before,.env-date-line::after{content:'';flex:1;max-width:42px;height:1px;background:var(--oro-linea);opacity:0.5}
+.env-date-day{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--oro-claro);opacity:0.88}
+.env-date-num{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:var(--blanco);line-height:1;margin:2px 0}
+.env-date-month{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);margin-top:2px}
+.env-date-year{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;color:var(--oro-claro);opacity:0.8;margin-top:8px}
+.env-date-ornament{margin-top:10px;display:flex;justify-content:center}
 
+/* Botón ornamental */
 .env-open-wrap{display:inline-block;position:relative;padding:2px}
 .env-open-wrap::before,.env-open-wrap::after{content:'';position:absolute;width:10px;height:10px;border:1px solid var(--oro-linea);pointer-events:none}
 .env-open-wrap::before{top:0;left:0;border-right:none;border-bottom:none}
@@ -70,34 +84,43 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-open-corner-bl,.env-open-corner-br{position:absolute;width:10px;height:10px;border:1px solid var(--oro-linea);pointer-events:none}
 .env-open-corner-bl{bottom:0;left:0;border-right:none;border-top:none}
 .env-open-corner-br{bottom:0;right:0;border-left:none;border-top:none}
-.env-open-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(212,185,140,0.45);color:var(--oro-claro);font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:all 0.25s}
+.env-open-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(212,185,140,0.45);color:var(--oro-claro);font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:13px 28px;cursor:pointer;transition:all 0.25s}
 .env-open-btn:hover{background:rgba(212,185,140,0.1)}
 
-.ticket-bottom{background:var(--blanco);border-radius:0 0 14px 14px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.ticket-flower{font-size:13px;color:var(--oro-linea);flex-shrink:0;line-height:1}
+/* Ticket blanco inferior (imagen 2) */
+.ticket-bottom{background:var(--blanco);border-radius:0 0 16px 16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ticket-flower{font-size:15px;color:var(--oro-linea);flex-shrink:0;line-height:1}
 .ticket-info{text-align:center;flex:1;padding:0 8px}
-.ticket-name{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--texto)}
-.ticket-msg{font-family:'Jost',sans-serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-top:3px}
-.ticket-cupos{font-family:'Jost',sans-serif;font-size:7px;letter-spacing:2px;color:var(--texto2);margin-top:2px;display:none}
+.ticket-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--texto)}
+.ticket-msg{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-top:4px}
+.ticket-cupos{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:var(--texto2);margin-top:3px;display:none}
 
-.env-corner{position:absolute;width:52px;height:52px;opacity:0.88;pointer-events:none}
-.env-corner.tl{top:-2px;left:-2px}
-.env-corner.br{bottom:-2px;right:-2px;transform:rotate(180deg)}
-.env-corner.tr{top:-2px;right:-2px;width:22px;height:22px;opacity:0.75}
-.env-corner.bl{bottom:-2px;left:-2px;width:22px;height:22px;opacity:0.75}
+/* Esquinas decorativas */
+.env-corner{position:absolute;width:96px;height:96px;opacity:0.92;pointer-events:none}
+.env-corner.tl{top:2px;left:2px}
+.env-corner.br{bottom:2px;right:2px;transform:rotate(180deg)}
+.env-corner.tr{top:4px;right:4px;width:34px;height:34px;opacity:0.8}
+.env-corner.bl{bottom:4px;left:4px;width:34px;height:34px;opacity:0.8}
 
-.opening-overlay{position:fixed;inset:0;background:#FBF8F1;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
+/* ══════════════════════════════
+   ANIMACIÓN DE APERTURA
+══════════════════════════════ */
+.opening-overlay{position:fixed;inset:0;background:#F2EEE3;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
 .opening-overlay.active{opacity:1;pointer-events:all}
 
+/* ══════════════════════════════
+   INVITACIÓN PRINCIPAL
+══════════════════════════════ */
 .invitation{display:none;min-height:100vh;padding:40px 16px;justify-content:center}
 .invitation.visible{display:flex}
-.card{max-width:480px;width:100%;background:var(--fondo);position:relative;overflow:hidden;box-shadow:0 24px 70px rgba(94,119,82,0.22);animation:slideUp 0.8s ease forwards}
+.card{max-width:480px;width:100%;background:var(--fondo);position:relative;overflow:hidden;box-shadow:0 24px 70px rgba(90,111,156,0.25);animation:slideUp 0.8s ease forwards}
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 .border-frame{display:none}
 .border-frame::before{content:'';position:absolute;inset:5px;border:0.5px solid rgba(212,185,140,0.3)}
 
-.hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#3E5233 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#3A4E7A 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,185,140,0.15) 0%,transparent 60%)}
 .botanical-top{position:absolute;top:0;left:0;right:0;height:130px;opacity:0.5}
 .botanical-bottom{position:absolute;bottom:0;left:0;right:0;height:110px;opacity:0.4;transform:scaleY(-1)}
@@ -111,10 +134,12 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .date-hero{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);position:relative;z-index:2}
 .year-big{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(201,166,107,0.14);position:absolute;bottom:16px;right:28px;z-index:2}
 
+/* Saludo personalizado en la invitación */
 .guest-greeting{background:var(--azul);padding:16px 32px;text-align:center;border-bottom:1px solid rgba(212,185,140,0.2)}
 .guest-greeting-to{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,166,107,0.5)}
 .guest-greeting-name{font-family:'Dancing Script',cursive;font-size:24px;color:var(--oro-claro);margin-top:2px}
 
+/* SECCIONES */
 .section{padding:38px 48px;position:relative;border-bottom:1px solid var(--borde);background:var(--blanco)}
 .section:nth-child(even){background:var(--fondo)}
 @media(max-width:600px){
@@ -131,25 +156,17 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
   .carrete-slide img{height:56vw!important;max-height:400px!important}
   .invitation{padding:0!important}
   .card{box-shadow:none}
-  .env-names{font-size:26px}
-  .env-date-num{font-size:34px}
-  .env-monogram-wrap{width:110px;height:110px}
-  .envelope-wrap{max-width:280px}
+  .env-names{font-size:34px}
+  .env-date-num{font-size:48px}
+  .env-monogram-wrap{width:132px;height:132px}
+  .env-monogram-frame{width:108px;height:108px}
+  .env-corner-branch{width:82px;height:82px}
+  .envelope-wrap{max-width:340px}
 }
-@media(max-height:720px){
-  .envelope-wrap{max-width:260px}
-  .env-monogram-wrap{width:100px;height:100px;margin-bottom:10px}
-  .env-names{font-size:24px}
-  .env-date-block{margin:10px 0 10px}
-  .env-date-num{font-size:30px}
-  .envelope-inner{padding:14px 14px 4px}
-  .envelope-frame{padding:10px 10px 16px}
-  .env-eyebrow-divider{margin:6px auto 10px}
-  .env-subtitle{margin-top:4px}
-}
-.section-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#C7A768;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.section-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#D4AF6A;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--borde),transparent)}
 
+/* PROGRAMA DEL DÍA */
 .programa-list{display:flex;flex-direction:column}
 .programa-item{display:flex;gap:18px;align-items:baseline;padding:14px 0;border-bottom:0.5px solid var(--borde)}
 .programa-item:last-child{border-bottom:none}
@@ -157,11 +174,13 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .programa-titulo{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto)}
 .programa-sub{font-family:'Jost',sans-serif;font-size:11px;color:var(--texto2);margin-top:2px}
 
+/* FAQ */
 .faq-item{padding:16px 0;border-bottom:0.5px solid var(--borde)}
 .faq-item:last-child{border-bottom:none}
 .faq-q{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--azul-med);margin-bottom:6px}
 .faq-a{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.6}
 
+/* MENSAJE */
 .mensaje-section{position:relative;overflow:hidden;padding:50px 48px 42px;border-bottom:1px solid var(--borde);background:var(--blanco)}
 .world-map-bg{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Cellipse cx='200' cy='200' rx='160' ry='110' fill='%231a3a8f'/%3E%3Cellipse cx='480' cy='180' rx='200' ry='120' fill='%231a3a8f'/%3E%3Cellipse cx='720' cy='210' rx='120' ry='90' fill='%231a3a8f'/%3E%3Cellipse cx='580' cy='350' rx='80' ry='50' fill='%231a3a8f'/%3E%3Cellipse cx='240' cy='370' rx='60' ry='40' fill='%231a3a8f'/%3E%3Cellipse cx='800' cy='380' rx='55' ry='35' fill='%231a3a8f'/%3E%3C/svg%3E");background-size:cover;background-position:center;pointer-events:none}
 .plane-heart{text-align:center;margin-bottom:22px;position:relative;z-index:2}
@@ -174,21 +193,24 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .oro-sep::before,.oro-sep::after{content:'';flex:1;height:0.5px;background:linear-gradient(90deg,transparent,var(--oro-linea),transparent)}
 .oro-diamond{width:5px;height:5px;background:var(--oro-linea);transform:rotate(45deg);flex-shrink:0}
 
+/* COUNTDOWN */
 .countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
 .count-box{text-align:center;background:var(--azul);padding:16px 8px 11px;position:relative}
 .count-box::before{content:'';position:absolute;inset:3px;border:0.5px solid rgba(212,185,140,0.4)}
 .count-number{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--oro-claro);line-height:1;display:block}
 .count-label{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-top:5px}
 
+/* DETALLES */
 .detail-row{display:flex;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:0.5px solid var(--borde)}
 .detail-row:last-child{border-bottom:none}
 .detail-icon{width:30px;height:30px;min-width:30px;background:var(--azul);display:flex;align-items:center;justify-content:center;margin-top:2px}
-.detail-key{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C7A768;margin-bottom:4px}
+.detail-key{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#D4AF6A;margin-bottom:4px}
 .detail-val{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--texto);line-height:1.45}
 .detail-sub{font-size:14px;color:var(--texto2)}
-.map-btn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#C7A768;color:#FDFBF6;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:1px;padding:8px 18px;text-decoration:none;transition:background 0.2s}
+.map-btn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#D4AF6A;color:#F7F4EC;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:1px;padding:8px 18px;text-decoration:none;transition:background 0.2s}
 .map-btn:hover{background:var(--azul-med)}
 
+/* DRESS CODE */
 .palette-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .swatch{display:flex;flex-direction:column;align-items:center;gap:5px}
 .swatch-circle{width:36px;height:36px;border-radius:50%;border:0.5px solid rgba(0,0,0,0.1)}
@@ -197,6 +219,7 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .avoid-pill{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border:1px solid currentColor}
 .avoid-white{color:#9090b0;background:#f5f5ff}.avoid-black{color:#4a4640;background:#eeecea}.avoid-red{color:#a85050;background:#fdf0f0}
 
+/* OUTFITS */
 .outfit-tabs{display:flex;margin-bottom:16px;margin-top:20px;border:0.5px solid var(--borde)}
 .outfit-tab{flex:1;padding:11px;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-align:center;cursor:pointer;color:var(--texto2);background:transparent;border:none;transition:all 0.2s}
 .outfit-tab:first-child{border-right:0.5px solid var(--borde)}
@@ -215,12 +238,14 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .outfit-see-more:hover{background:var(--azul-suave)}
 .outfit-see-more span{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--azul-med)}
 
+/* INFO CARDS */
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.info-card{background:var(--blanco);border:0.5px solid var(--borde);border-top:2px solid #C7A768;padding:22px 14px;text-align:center}
+.info-card{background:var(--blanco);border:0.5px solid var(--borde);border-top:2px solid #D4AF6A;padding:22px 14px;text-align:center}
 .info-icon{font-size:18px;margin-bottom:8px;display:block;color:var(--azul-med)}
 .info-title{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--azul-med);margin-bottom:8px}
 .info-text{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--texto);line-height:1.6}
 
+/* RSVP */
 .rsvp-inner{text-align:center;padding:8px 0 4px}
 .deadline{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;color:var(--texto2);text-transform:uppercase;margin-bottom:22px}
 .deadline span{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--texto);display:block;margin-top:5px}
@@ -228,9 +253,10 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .rsvp-btn::before{content:'';position:absolute;inset:4px;border:0.5px solid rgba(201,166,107,0.35);pointer-events:none}
 .rsvp-btn:hover{background:var(--azul-med)}
 
-.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(94,119,82,0.8);z-index:500;align-items:center;justify-content:center;padding:20px}
+/* MODAL */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(90,111,156,0.75);z-index:500;align-items:center;justify-content:center;padding:20px}
 .modal-backdrop.open{display:flex}
-.modal{background:var(--blanco);max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(94,119,82,0.3)}
+.modal{background:var(--blanco);max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(90,111,156,0.3)}
 .modal-header{background:var(--azul);padding:20px 24px 16px;position:relative}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--blanco)}
 .modal-close{position:absolute;top:14px;right:14px;width:28px;height:28px;background:rgba(201,166,107,0.15);border:none;cursor:pointer;color:var(--oro-claro);font-size:16px;display:flex;align-items:center;justify-content:center}
@@ -250,15 +276,18 @@ body{background:#FBF8F1;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .modal-success-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--texto);margin-bottom:8px}
 .modal-success-text{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--texto2)}
 
+/* FOOTER */
 .footer{background:var(--azul);padding:30px 48px;text-align:center}
 .monogram{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;font-style:italic;color:var(--oro-claro);letter-spacing:8px}
 .footer-sub{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;color:rgba(201,166,107,0.4);text-transform:uppercase;margin-top:8px}
 
+/* CARRETE */
 .carrete-slide{min-width:100%;flex-shrink:0}
 .carrete-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;display:inline-block;transition:background 0.3s}
 .carrete-dot.active{background:#F0E4C4}
 .carrete-wrap{position:relative;overflow:hidden;margin:0}
 
+/* Ocultar reproductor nativo de Chrome */
 audio{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
 video{display:none!important}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
@@ -273,56 +302,21 @@ video{display:none!important}
 </head>
 <body>
 
+<!-- Audio de fondo -->
 <audio id="bgAudio" src="cancion.mp3" loop preload="auto"></audio>
 
-<div class="envelope-screen" id="envelopeScreen" style="background-image:url('foto.jpg')">
+<!-- ══ PANTALLA DEL SOBRE ══ -->
+<div class="envelope-screen" id="envelopeScreen">
 
   <div class="envelope-wrap" onclick="openEnvelope()">
 
     <div class="envelope-frame">
 
-      <svg class="env-corner tl" viewBox="0 0 70 70" fill="none" aria-hidden="true">
-        <g stroke="#D4B98C" stroke-width="0.9" fill="none">
-          <path d="M4 4 C 4 4, 28 4, 48 22 C 58 32, 66 44, 66 58"/>
-          <path d="M8 18 C 14 12, 22 10, 32 14"/>
-          <path d="M12 32 C 18 26, 28 24, 38 30"/>
-        </g>
-        <g fill="#D4B98C">
-          <ellipse cx="14" cy="8" rx="5" ry="2.4" transform="rotate(20 14 8)"/>
-          <ellipse cx="26" cy="10" rx="5.5" ry="2.6" transform="rotate(35 26 10)"/>
-          <ellipse cx="38" cy="17" rx="5.5" ry="2.6" transform="rotate(50 38 17)"/>
-          <ellipse cx="47" cy="27" rx="5" ry="2.4" transform="rotate(65 47 27)"/>
-          <circle cx="8" cy="20" r="1.5"/>
-          <circle cx="16" cy="30" r="1.2"/>
-        </g>
-      </svg>
-      <svg class="env-corner br" viewBox="0 0 70 70" fill="none" aria-hidden="true">
-        <g stroke="#D4B98C" stroke-width="0.9" fill="none">
-          <path d="M4 4 C 4 4, 28 4, 48 22 C 58 32, 66 44, 66 58"/>
-          <path d="M8 18 C 14 12, 22 10, 32 14"/>
-          <path d="M12 32 C 18 26, 28 24, 38 30"/>
-        </g>
-        <g fill="#D4B98C">
-          <ellipse cx="14" cy="8" rx="5" ry="2.4" transform="rotate(20 14 8)"/>
-          <ellipse cx="26" cy="10" rx="5.5" ry="2.6" transform="rotate(35 26 10)"/>
-          <ellipse cx="38" cy="17" rx="5.5" ry="2.6" transform="rotate(50 38 17)"/>
-          <ellipse cx="47" cy="27" rx="5" ry="2.4" transform="rotate(65 47 27)"/>
-        </g>
-      </svg>
-      <svg class="env-corner tr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="2" fill="#D4B98C" opacity="0.7"/>
-        <ellipse cx="12" cy="7" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(0 12 7)"/>
-        <ellipse cx="17" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(90 17 12)"/>
-        <ellipse cx="12" cy="17" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(180 12 17)"/>
-        <ellipse cx="7" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(-90 7 12)"/>
-      </svg>
-      <svg class="env-corner bl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="2" fill="#D4B98C" opacity="0.7"/>
-        <ellipse cx="12" cy="7" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55"/>
-        <ellipse cx="17" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(90 17 12)"/>
-        <ellipse cx="12" cy="17" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(180 12 17)"/>
-        <ellipse cx="7" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(-90 7 12)"/>
-      </svg>
+      <!-- Esquinas botánicas reales (recortadas del mismo marco dorado) -->
+      <div class="env-corner-branch tl" aria-hidden="true"></div>
+      <div class="env-corner-branch tr" aria-hidden="true"></div>
+      <div class="env-corner-branch br" aria-hidden="true"></div>
+      <div class="env-corner-branch bl" aria-hidden="true"></div>
 
       <div class="envelope-inner">
 
@@ -334,25 +328,10 @@ video{display:none!important}
         </div>
 
         <div class="env-monogram-wrap">
-          <svg width="158" height="158" viewBox="0 0 158 158" fill="none" aria-hidden="true" style="width:100%;height:100%">
-            <circle cx="79" cy="79" r="54" fill="none" stroke="#D4B98C" stroke-width="1.1" opacity="0.5"/>
-            <circle cx="79" cy="79" r="46" fill="none" stroke="#D4B98C" stroke-width="1.4" opacity="0.7"/>
-            <g fill="#D4B98C" opacity="0.92">
-              <ellipse cx="28" cy="52" rx="10" ry="5.2" transform="rotate(-35 28 52)"/>
-              <ellipse cx="20" cy="68" rx="11" ry="5.6" transform="rotate(-15 20 68)"/>
-              <ellipse cx="18" cy="86" rx="11" ry="5.6" transform="rotate(10 18 86)"/>
-              <ellipse cx="24" cy="102" rx="10" ry="5.2" transform="rotate(35 24 102)"/>
-              <ellipse cx="36" cy="115" rx="9" ry="4.8" transform="rotate(55 36 115)"/>
-            </g>
-            <g fill="#D4B98C" opacity="0.92">
-              <ellipse cx="130" cy="52" rx="10" ry="5.2" transform="rotate(35 130 52)"/>
-              <ellipse cx="138" cy="68" rx="11" ry="5.6" transform="rotate(15 138 68)"/>
-              <ellipse cx="140" cy="86" rx="11" ry="5.6" transform="rotate(-10 140 86)"/>
-              <ellipse cx="134" cy="102" rx="10" ry="5.2" transform="rotate(-35 134 102)"/>
-              <ellipse cx="122" cy="115" rx="9" ry="4.8" transform="rotate(-55 122 115)"/>
-            </g>
-            <circle cx="79" cy="26" r="2" fill="#D4B98C" opacity="0.75"/>
-            <text x="79" y="90" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" fill="#FDFBF6" font-weight="400">K<tspan fill="#C7A768" font-style="italic">&amp;</tspan>N</text>
+          <div class="env-monogram-frame" aria-hidden="true"></div>
+          <svg width="158" height="158" viewBox="0 0 158 158" fill="none" aria-hidden="true" style="position:relative;z-index:1">
+            <circle cx="79" cy="79" r="46" fill="none" stroke="#D4B98C" stroke-width="0.8" opacity="0.65"/>
+            <text x="79" y="90" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="40" fill="#F7F4EC" font-weight="400">K<tspan fill="#D4AF6A" font-style="italic">&amp;</tspan>N</text>
           </svg>
         </div>
 
@@ -388,6 +367,7 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- Ticket blanco personalizado (imagen 2) -->
     <div class="ticket-bottom">
       <div class="ticket-flower" aria-hidden="true">❀</div>
       <div class="ticket-info">
@@ -402,6 +382,7 @@ video{display:none!important}
 
 </div>
 
+<!-- MODAL RSVP -->
 <div class="modal-backdrop" id="rsvpModal">
   <div class="modal">
     <div class="modal-header">
@@ -414,11 +395,12 @@ video{display:none!important}
   </div>
 </div>
 
+<!-- Botón música flotante -->
 <div id="musicControl" style="position:fixed;bottom:24px;right:24px;z-index:200;display:none;flex-direction:column;align-items:center;gap:5px">
-  <button id="musicBtn" onclick="toggleMusic()" title="Reproducir música" style="width:46px;height:46px;border-radius:50%;background:#8FA37E;border:1.5px solid #D4B98C;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(94,119,82,0.4)">
+  <button id="musicBtn" onclick="toggleMusic()" title="Reproducir música" style="width:46px;height:46px;border-radius:50%;background:#7C93C4;border:1.5px solid #D4B98C;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(90,111,156,0.4)">
     <svg width="15" height="17" viewBox="0 0 15 17" fill="#F0E4C4"><path d="M1 1l13 7.5L1 16V1z"/></svg>
   </button>
-  <button id="pauseBtn" onclick="toggleMusic()" title="Pausar música" style="width:46px;height:46px;border-radius:50%;background:#8FA37E;border:1.5px solid #D4B98C;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(94,119,82,0.4)">
+  <button id="pauseBtn" onclick="toggleMusic()" title="Pausar música" style="width:46px;height:46px;border-radius:50%;background:#7C93C4;border:1.5px solid #D4B98C;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(90,111,156,0.4)">
     <svg width="13" height="15" viewBox="0 0 13 15" fill="#F0E4C4"><rect x="0" y="0" width="4" height="15" rx="1"/><rect x="7" y="0" width="4" height="15" rx="1"/></svg>
   </button>
   <div style="display:flex;gap:2px;align-items:flex-end;height:12px">
@@ -430,11 +412,14 @@ video{display:none!important}
   </div>
 </div>
 
+<!-- ══ INVITACIÓN PRINCIPAL ══ -->
 <div class="invitation" id="invitation">
   <div class="card">
     <div class="border-frame"></div>
 
-    <div class="hero" style="background:linear-gradient(160deg,rgba(94,119,82,0.82) 0%,rgba(143,163,126,0.78) 55%,rgba(168,191,151,0.8) 100%),url('londres1.jpg') center center / cover no-repeat">
+    <!-- HERO -->
+    <div class="hero" style="background:linear-gradient(160deg,rgba(90,111,156,0.78) 0%,rgba(124,147,196,0.72) 55%,rgba(157,176,212,0.75) 100%),url('londres1.jpg') center center / cover no-repeat">
+      <!-- Estrellas decorativas top -->
       <svg class="botanical-top" viewBox="0 0 480 120" fill="none">
         <g opacity="0.6">
           <text x="30" y="50" font-size="18" fill="#D4B98C" opacity="0.5">❀</text>
@@ -452,6 +437,7 @@ video{display:none!important}
       <div class="divider-ornament fade-in" style="animation-delay:0.4s"><div class="diamond"></div></div>
       <div class="date-hero fade-in" style="animation-delay:0.5s">12 · 12 · 2026</div>
       <span class="year-big">2026</span>
+      <!-- Estrellas decorativas bottom -->
       <svg class="botanical-bottom" viewBox="0 0 480 100" fill="none">
         <g opacity="0.6">
           <line x1="0" y1="30" x2="480" y2="30" stroke="#D4B98C" stroke-width="0.5" opacity="0.2"/>
@@ -465,11 +451,13 @@ video{display:none!important}
     </div>
 
 
-    <div id="musicBanner" style="display:none;background:#5E7752;padding:10px 24px;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(212,185,140,0.2)">
+    <!-- Banner activar música (solo si Chrome lo bloqueó) -->
+    <div id="musicBanner" style="display:none;background:#5A6F9C;padding:10px 24px;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(212,185,140,0.2)">
       <span style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,166,107,0.7)">♪ Toca para activar la música</span>
       <button onclick="activateMusic()" style="background:rgba(212,185,140,0.15);border:1px solid #D4B98C;color:#F0E4C4;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;cursor:pointer">Activar</button>
     </div>
 
+    <!-- MENSAJE -->
     <div class="mensaje-section">
       <div class="plane-heart">
         <svg width="220" height="34" viewBox="0 0 220 34" fill="none">
@@ -490,6 +478,7 @@ video{display:none!important}
 
     <div class="oro-sep"><div class="oro-diamond"></div></div>
 
+    <!-- COUNTDOWN -->
     <div class="section">
       <div class="section-label">Cuenta regresiva</div>
       <div class="countdown-grid">
@@ -500,9 +489,11 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- LUGAR -->
     <div class="section">
       <div class="section-label">El gran día</div>
 
+      <!-- CEREMONIA -->
       <div class="detail-row">
         <div class="detail-icon"><svg width="13" height="14" viewBox="0 0 13 14" fill="none"><rect x="1" y="2" width="11" height="11" rx="1" stroke="#F0E4C4" stroke-width="1"/><path d="M4 1v2M9 1v2" stroke="#F0E4C4" stroke-width="1" stroke-linecap="round"/><path d="M1 5h11" stroke="#F0E4C4" stroke-width="0.8"/><rect x="4" y="7" width="2" height="2" fill="#F0E4C4" rx="0.5"/><rect x="7.5" y="7" width="2" height="2" fill="#F0E4C4" rx="0.5"/></svg></div>
         <div><div class="detail-key">Ceremonia</div><div class="detail-val">Sábado, 12 de Diciembre de 2026<br><span class="detail-sub">4:30 p.m.</span></div></div>
@@ -521,6 +512,7 @@ video{display:none!important}
 
       <div style="height:1px;background:var(--borde);margin:26px 0"></div>
 
+      <!-- FIESTA -->
       <div class="detail-row">
         <div class="detail-icon"><svg width="13" height="14" viewBox="0 0 13 14" fill="none"><rect x="1" y="2" width="11" height="11" rx="1" stroke="#F0E4C4" stroke-width="1"/><path d="M4 1v2M9 1v2" stroke="#F0E4C4" stroke-width="1" stroke-linecap="round"/><path d="M1 5h11" stroke="#F0E4C4" stroke-width="0.8"/><rect x="4" y="7" width="2" height="2" fill="#F0E4C4" rx="0.5"/><rect x="7.5" y="7" width="2" height="2" fill="#F0E4C4" rx="0.5"/></svg></div>
         <div><div class="detail-key">Fiesta</div><div class="detail-val">Sábado, 12 de Diciembre de 2026<br><span class="detail-sub">5:30 p.m.</span></div></div>
@@ -538,6 +530,7 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- PROGRAMA DEL DÍA -->
     <div class="section">
       <div class="section-label">Programa del día</div>
       <div class="programa-list">
@@ -572,6 +565,7 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- HISTORIA -->
     <div class="section">
       <div class="section-label">Nuestra historia</div>
       <div class="carrete-wrap">
@@ -583,8 +577,8 @@ video{display:none!important}
           <div class="carrete-slide"><img src="peru1.jpg" alt="Karin y Nicolas" style="width:100%;height:300px;object-fit:cover;display:block"></div>
           <div class="carrete-slide"><img src="santorini1.jpg" alt="Karin y Nicolas" style="width:100%;height:300px;object-fit:cover;display:block"></div>
         </div>
-        <button onclick="moverCarrete(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(94,119,82,0.6);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">‹</button>
-        <button onclick="moverCarrete(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(94,119,82,0.6);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">›</button>
+        <button onclick="moverCarrete(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(90,111,156,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">‹</button>
+        <button onclick="moverCarrete(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(90,111,156,0.55);border:1px solid rgba(212,185,140,0.5);color:#F0E4C4;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:50%">›</button>
         <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px">
           <span class="carrete-dot active" onclick="irASlide(0)"></span>
           <span class="carrete-dot" onclick="irASlide(1)"></span>
@@ -598,23 +592,27 @@ video{display:none!important}
     </div>
 
 
+    <!-- VESTIMENTA -->
     <div class="section" style="text-align:center;background:var(--fondo);border-bottom:1px solid var(--borde)">
       <div class="section-label" style="justify-content:center">Código de vestimenta</div>
 
+      <!-- Marco elegante -->
       <div style="border:1px solid var(--oro-linea);padding:20px 16px;margin-bottom:24px;position:relative">
         <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--azul);letter-spacing:2px">❀ Formal ❀</div>
         <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--texto2);margin-top:4px">Dress Code</div>
       </div>
 
+      <!-- Descripción + paleta simplificada -->
       <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.7;margin-bottom:20px">Tonos suaves y elegantes: tonos pasteles.</p>
 
       <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#FDFBF6;border:1.5px solid #c8b8a2"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#F7F4EC;border:1.5px solid #c8b8a2"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#f5e590;border:1.5px solid #d4c060"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#A8BF97;border:1.5px solid #5E7752"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#C7A768;border:1.5px solid #6a7e5a"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#9DB0D4;border:1.5px solid #5A6F9C"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px"><div style="width:36px;height:36px;border-radius:50%;background:#D4AF6A;border:1.5px solid #3A4E7A"></div><span style="font-family:'Jost',sans-serif;font-size:8px;color:var(--texto2);letter-spacing:1px"></span></div>
       </div>
 
+      <!-- Colores a evitar en línea -->
       <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;padding:12px;border:0.5px solid var(--borde)">
         <span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--texto2)">Evitar:</span>
         <div style="width:20px;height:20px;border-radius:50%;background:#f5f5f5;border:1px solid #ddd"></div>
@@ -625,6 +623,7 @@ video{display:none!important}
         <span style="font-family:'Jost',sans-serif;font-size:9px;color:var(--texto2)">Rojo</span>
       </div>
 
+      <!-- Botones inspiración -->
       <p style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--azul-med);margin-bottom:16px">❀ Paleta de inspiración ❀</p>
       <div style="display:flex;flex-direction:column;gap:12px">
         <a href="https://co.pinterest.com/search/pins/?q=vestido%20formal%20boda%20pastel%20campestre%20clima%20caliente&rs=typed" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s;background:var(--azul-suave)">
@@ -638,11 +637,14 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- INFO LÍNEA DE TIEMPO -->
     <div class="section">
       <div class="section-label">Información importante</div>
       <div style="position:relative;padding-left:32px">
+        <!-- Línea vertical -->
         <div style="position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--azul),var(--oro-linea),var(--azul))"></div>
 
+        <!-- Item 1 -->
         <div style="position:relative;margin-bottom:28px">
           <div style="position:absolute;left:-26px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <span style="font-size:9px">✉</span>
@@ -652,6 +654,7 @@ video{display:none!important}
         </div>
 
 
+        <!-- Item 3 -->
         <div style="position:relative;margin-bottom:28px">
           <div style="position:absolute;left:-26px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <span style="font-size:9px">⌂</span>
@@ -660,6 +663,7 @@ video{display:none!important}
           <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.6">Escríbenos al WhatsApp para coordinar tu estadía en el hotel.<br><a href="https://wa.me/573226390841" target="_blank" style="color:var(--azul-med);font-weight:500;text-decoration:none">+57 322 639 0841</a></p>
         </div>
 
+        <!-- Item 4 -->
         <div style="position:relative">
           <div style="position:absolute;left:-26px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <span style="font-size:9px">❀</span>
@@ -670,6 +674,7 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- PREGUNTAS FRECUENTES -->
     <div class="section">
       <div class="section-label">Preguntas frecuentes</div>
       <div class="faq-item">
@@ -686,6 +691,7 @@ video{display:none!important}
       </div>
     </div>
 
+    <!-- RSVP -->
     <div class="section" style="border-bottom:none">
       <div class="section-label">Confirmación de asistencia</div>
       <div class="rsvp-inner">
@@ -705,6 +711,7 @@ video{display:none!important}
 </div>
 
 <script>
+// ── Carrete de fotos ──
 let slideActual = 0;
 const totalSlides = 6;
 function moverCarrete(dir) {
@@ -719,9 +726,11 @@ function actualizarCarrete() {
   document.getElementById('carrete').style.transform = `translateX(-${slideActual * 100}%)`;
   document.querySelectorAll('.carrete-dot').forEach((d, i) => d.classList.toggle('active', i === slideActual));
 }
+// Auto-avance cada 4 segundos
 setInterval(() => moverCarrete(1), 4000);
 
 
+// Uso: index.html?n=Juan%20y%20Maria
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get('n') ? decodeURIComponent(params.get('n')) : '';
 const guestCupos = params.get('c') ? decodeURIComponent(params.get('c')) : '';
@@ -739,10 +748,12 @@ if (guestCupos) {
   if (el) { el.textContent = 'CUPOS: ' + guestCupos; el.style.display = 'block'; }
 }
 
+// ── Abrir sobre ──
 function openEnvelope() {
   const screen = document.getElementById('envelopeScreen');
   screen.classList.add('hiding');
 
+  // Forzar audio en Chrome — crear nuevo contexto desde el clic directo
   const audio = document.getElementById('bgAudio');
   audio.volume = 0.75;
   audio.load();
@@ -754,6 +765,7 @@ function openEnvelope() {
       document.querySelectorAll('.wave-dot').forEach(d => d.style.animation='wave-dot 1s ease-in-out infinite');
       document.getElementById('musicBanner').style.display = 'none';
     }).catch(() => {
+      // Si Chrome aún bloquea, mostrar banner para activar manualmente
       document.getElementById('musicBanner').style.display = 'flex';
     });
   }
@@ -794,6 +806,7 @@ function activateMusic() {
 function confirmarWhatsApp() {}
 
 
+// ── Countdown ──
 function updateCD() {
   const d = new Date(2026, 11, 12, 17, 0, 0) - new Date();
   if (d <= 0) return;
@@ -804,6 +817,7 @@ function updateCD() {
 }
 setTimeout(() => { updateCD(); setInterval(updateCD, 1000); }, 100);
 
+// ── Outfit tabs ──
 function showTab(tab, btn) {
   document.querySelectorAll('.outfit-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.outfit-panel').forEach(p => p.classList.remove('active'));
@@ -811,6 +825,7 @@ function showTab(tab, btn) {
   btn.classList.add('active');
 }
 
+// ── Modal RSVP ──
 function openModal(){
   document.getElementById('rsvpModal').classList.add('open');
   document.getElementById('modalForm').style.display='block';
@@ -825,6 +840,7 @@ function submitRSVP(){
   const mensaje=document.getElementById('rsvpMensaje').value.trim();
   if(!nombre){alert('Por favor ingresa tu nombre.');return;}
   if(!asistencia){alert('Por favor selecciona si podrás asistir.');return;}
+  // Enviar a Google Forms en segundo plano
   const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSdFSg3dPMtH5BT5_8nQlT_VRza2Cj1_22CPYU-pWXKWp50UtQ/formResponse';
   const data=new FormData();
   data.append('entry.1919961289', nombre);
