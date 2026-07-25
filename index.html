@@ -43,7 +43,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 /* Marco dorado — invitación boho (imagen 1) */
 .envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(212,185,140,0.55);border-radius:16px;position:relative;background:rgba(58,78,122,0.2);backdrop-filter:blur(2px)}
 .envelope-frame::before{content:'';position:absolute;inset:7px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
-.env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(-50%,-50%);background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(calc(-50% + 17px),calc(-50% + 10px));background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
 .env-corner-branch{position:absolute;width:110px;height:110px;background-image:url('esquina-dorada.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;opacity:0.95}
 .env-corner-branch.tl{top:4px;left:4px}
 .env-corner-branch.tr{top:4px;right:4px;transform:scaleX(-1)}
@@ -159,7 +159,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
   .env-names{font-size:34px}
   .env-date-num{font-size:48px}
   .env-monogram-wrap{width:132px;height:132px}
-  .env-monogram-frame{width:108px;height:108px}
+  .env-monogram-frame{width:108px;height:108px;transform:translate(calc(-50% + 15px),calc(-50% + 9px))}
   .env-corner-branch{width:82px;height:82px}
   .envelope-wrap{max-width:340px}
 }
