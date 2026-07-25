@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Boda Karin & Nicolas — 12.12.2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -26,13 +26,13 @@
   --borde:     #DDE2ED;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden;width:100%}
 body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
 
 /* ══════════════════════════════
    PANTALLA DEL SOBRE (inicio) — ref. imagen 1 + ticket imagen 2
 ══════════════════════════════ */
-.envelope-screen{position:fixed;inset:0;background:url('foto.jpg') center center / cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
-.envelope-screen::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(124,147,196,0.55) 0%,rgba(90,111,156,0.72) 50%,rgba(58,78,122,0.85) 100%);z-index:0}
+.envelope-screen{position:fixed;inset:0;background:linear-gradient(160deg,#7C93C4 0%,#5A6F9C 55%,#3A4E7A 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
 .envelope-screen > *{position:relative;z-index:1}
 .envelope-screen.hiding{opacity:0;transform:scale(0.97);pointer-events:none}
 .envelope-screen.hidden{display:none}
@@ -43,7 +43,12 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 /* Marco dorado — invitación boho (imagen 1) */
 .envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(212,185,140,0.55);border-radius:16px;position:relative;background:rgba(58,78,122,0.2);backdrop-filter:blur(2px)}
 .envelope-frame::before{content:'';position:absolute;inset:7px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
-.env-monogram-frame{position:absolute;top:50%;left:50%;width:238px;height:238px;transform:translate(-50%,-50%);background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(-50%,-50%);background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.env-corner-branch{position:absolute;width:110px;height:110px;background-image:url('esquina-dorada.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;opacity:0.95}
+.env-corner-branch.tl{top:4px;left:4px}
+.env-corner-branch.tr{top:4px;right:4px;transform:scaleX(-1)}
+.env-corner-branch.br{bottom:4px;right:4px;transform:rotate(180deg)}
+.env-corner-branch.bl{bottom:4px;left:4px;transform:scaleY(-1)}
 
 .envelope-inner{padding:28px 22px 8px;text-align:center;position:relative;z-index:2}
 
@@ -54,7 +59,7 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-eyebrow-divider svg{display:block}
 
 /* Monograma con corona de hojas */
-.env-monogram-wrap{margin:0 auto 22px;width:158px;height:158px;position:relative}
+.env-monogram-wrap{margin:0 auto 26px;width:158px;height:158px;position:relative}
 
 /* Nombres */
 .env-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--blanco);letter-spacing:0.5px;line-height:1.1}
@@ -154,7 +159,8 @@ body{background:#F2EEE3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
   .env-names{font-size:34px}
   .env-date-num{font-size:48px}
   .env-monogram-wrap{width:132px;height:132px}
-  .env-monogram-frame{width:200px;height:200px}
+  .env-monogram-frame{width:108px;height:108px}
+  .env-corner-branch{width:82px;height:82px}
   .envelope-wrap{max-width:340px}
 }
 .section-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#D4AF6A;margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -300,27 +306,17 @@ video{display:none!important}
 <audio id="bgAudio" src="cancion.mp3" loop preload="auto"></audio>
 
 <!-- ══ PANTALLA DEL SOBRE ══ -->
-<div class="envelope-screen" id="envelopeScreen" style="background-image:url('foto.jpg')">
+<div class="envelope-screen" id="envelopeScreen">
 
   <div class="envelope-wrap" onclick="openEnvelope()">
 
     <div class="envelope-frame">
 
-      <!-- Esquinas botánicas simples (marco general de la tarjeta) -->
-      <svg class="env-corner tr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="2" fill="#D4B98C" opacity="0.7"/>
-        <ellipse cx="12" cy="7" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(0 12 7)"/>
-        <ellipse cx="17" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(90 17 12)"/>
-        <ellipse cx="12" cy="17" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(180 12 17)"/>
-        <ellipse cx="7" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(-90 7 12)"/>
-      </svg>
-      <svg class="env-corner bl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="2" fill="#D4B98C" opacity="0.7"/>
-        <ellipse cx="12" cy="7" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55"/>
-        <ellipse cx="17" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(90 17 12)"/>
-        <ellipse cx="12" cy="17" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(180 12 17)"/>
-        <ellipse cx="7" cy="12" rx="3.5" ry="2" fill="#D4B98C" opacity="0.55" transform="rotate(-90 7 12)"/>
-      </svg>
+      <!-- Esquinas botánicas reales (recortadas del mismo marco dorado) -->
+      <div class="env-corner-branch tl" aria-hidden="true"></div>
+      <div class="env-corner-branch tr" aria-hidden="true"></div>
+      <div class="env-corner-branch br" aria-hidden="true"></div>
+      <div class="env-corner-branch bl" aria-hidden="true"></div>
 
       <div class="envelope-inner">
 
