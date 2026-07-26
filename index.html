@@ -7,8 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Paleta azul cielo apagado y dorado — elegante y luminosa,
-     nombres de variables heredados (azul/oro), valores en azul claro + dorado + marfil */
   --azul:      #3B5C2E;
   --azul-osc:  #243D18;
   --azul-med:  #7C9A6B;
@@ -31,9 +29,6 @@ html,body{max-width:100vw}
 html{overflow-x:hidden;width:100%}
 body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-height:100vh;overflow-x:hidden}
 
-/* ══════════════════════════════
-   PANTALLA DEL SOBRE (inicio) — ref. imagen 1 + ticket imagen 2
-══════════════════════════════ */
 .envelope-screen{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,#F7F4E7 0%,#EEF3E6 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity 0.6s ease, transform 0.6s ease;padding:20px}
 .envelope-screen > *{position:relative;z-index:1}
 .envelope-screen.hiding{opacity:0;transform:scale(0.97);pointer-events:none}
@@ -50,7 +45,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .envelope-wrap{width:100%;max-width:380px;cursor:pointer;filter:drop-shadow(0 22px 48px rgba(0,0,0,0.32));border-radius:16px;overflow:hidden;transition:transform 0.3s}
 .envelope-wrap:hover{transform:translateY(-3px)}
 
-/* Marco dorado — invitación boho (imagen 1) */
 .envelope-frame{width:100%;padding:16px 14px 28px;border:1px solid rgba(36,61,24,0.35);border-radius:16px;position:relative;background:rgba(255,255,255,0.35)}
 .envelope-frame::before{content:'';position:absolute;inset:7px;border:1px solid rgba(212,185,140,0.28);pointer-events:none;border-radius:2px}
 .env-monogram-frame{position:absolute;top:50%;left:50%;width:128px;height:128px;transform:translate(calc(-50% + 17px),calc(-50% + 10px));background-image:url('marco-dorado.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
@@ -62,21 +56,17 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 
 .envelope-inner{padding:28px 22px 8px;text-align:center;position:relative;z-index:2}
 
-/* Encabezado */
 .env-eyebrow{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--azul-osc);opacity:0.85}
 .env-eyebrow-divider{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px auto 22px}
 .env-eyebrow-divider::before,.env-eyebrow-divider::after{content:'';width:28px;height:1px;background:var(--oro-linea);opacity:0.55}
 .env-eyebrow-divider svg{display:block}
 
-/* Monograma con corona de hojas */
 .env-monogram-wrap{margin:0 auto 26px;width:158px;height:158px;position:relative}
 
-/* Nombres */
 .env-names{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--azul-osc);letter-spacing:0.5px;line-height:1.1}
 .env-names .amp{color:var(--oro);font-style:italic;font-weight:300}
 .env-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--texto2);opacity:1;margin-top:10px;line-height:1.55}
 
-/* Fecha apilada */
 .env-date-block{margin:24px 0 26px}
 .env-date-line{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
 .env-date-line::before,.env-date-line::after{content:'';flex:1;max-width:42px;height:1px;background:var(--oro-linea);opacity:0.5}
@@ -86,7 +76,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-date-year{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;color:var(--azul-osc);opacity:0.7;margin-top:8px}
 .env-date-ornament{margin-top:10px;display:flex;justify-content:center}
 
-/* Botón ornamental */
 .env-open-wrap{display:inline-block;position:relative;padding:2px}
 .env-open-wrap::before,.env-open-wrap::after{content:'';position:absolute;width:10px;height:10px;border:1px solid var(--oro-linea);pointer-events:none}
 .env-open-wrap::before{top:0;left:0;border-right:none;border-bottom:none}
@@ -97,7 +86,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .env-open-btn{display:inline-flex;align-items:center;gap:10px;background:var(--azul-osc);border:1px solid var(--azul-osc);color:#F7F4E7;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:13px 28px;border-radius:24px;cursor:pointer;transition:all 0.25s}
 .env-open-btn:hover{background:var(--azul)}
 
-/* Ticket blanco inferior (imagen 2) */
 .ticket-bottom{background:var(--blanco);border-radius:0 0 16px 16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .ticket-flower{font-size:15px;color:var(--oro-linea);flex-shrink:0;line-height:1}
 .ticket-info{text-align:center;flex:1;padding:0 8px}
@@ -105,22 +93,15 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .ticket-msg{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-top:4px}
 .ticket-cupos{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:2px;color:var(--texto2);margin-top:3px;display:none}
 
-/* Esquinas decorativas */
 .env-corner{position:absolute;width:96px;height:96px;opacity:0.92;pointer-events:none}
 .env-corner.tl{top:2px;left:2px}
 .env-corner.br{bottom:2px;right:2px;transform:rotate(180deg)}
 .env-corner.tr{top:4px;right:4px;width:34px;height:34px;opacity:0.8}
 .env-corner.bl{bottom:4px;left:4px;width:34px;height:34px;opacity:0.8}
 
-/* ══════════════════════════════
-   ANIMACIÓN DE APERTURA
-══════════════════════════════ */
 .opening-overlay{position:fixed;inset:0;background:#F3F0E3;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
 .opening-overlay.active{opacity:1;pointer-events:all}
 
-/* ══════════════════════════════
-   INVITACIÓN PRINCIPAL
-══════════════════════════════ */
 .invitation{display:none;min-height:100vh;padding:40px 16px;justify-content:center}
 .invitation.visible{display:flex}
 .card{max-width:480px;width:100%;background:var(--fondo);position:relative;overflow:hidden;box-shadow:0 24px 70px rgba(59,92,46,0.25);animation:slideUp 0.8s ease forwards}
@@ -129,7 +110,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .border-frame{display:none}
 .border-frame::before{content:'';position:absolute;inset:5px;border:0.5px solid rgba(212,185,140,0.3)}
 
-/* HERO */
 .hero{background:linear-gradient(160deg,var(--azul-osc) 0%,var(--azul) 55%,#14260C 100%);padding:64px 48px 54px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,185,140,0.15) 0%,transparent 60%)}
 .botanical-top{position:absolute;top:0;left:0;right:0;height:130px;opacity:0.5}
@@ -144,12 +124,10 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .date-hero{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--oro-claro);position:relative;z-index:2}
 .year-big{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(201,166,107,0.14);position:absolute;bottom:16px;right:28px;z-index:2}
 
-/* Saludo personalizado en la invitación */
 .guest-greeting{background:var(--azul);padding:16px 32px;text-align:center;border-bottom:1px solid rgba(212,185,140,0.2)}
 .guest-greeting-to{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,166,107,0.5)}
 .guest-greeting-name{font-family:'Dancing Script',cursive;font-size:24px;color:var(--oro-claro);margin-top:2px}
 
-/* SECCIONES */
 .section{padding:38px 48px;position:relative;border-bottom:1px solid var(--borde);background:var(--blanco)}
 .section:nth-child(even){background:var(--fondo)}
 @media(max-width:600px){
@@ -193,23 +171,20 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .section-label{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#D4AF6A;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--borde),transparent)}
 
-/* PROGRAMA DEL DÍA */
 .programa-list{display:flex;flex-direction:column}
 .programa-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:0.5px solid var(--borde)}
 .programa-item:last-child{border-bottom:none}
 .programa-hora{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1px;color:var(--azul-med);font-weight:500;width:58px;flex-shrink:0}
 .programa-titulo{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto)}
 .programa-sub{font-family:'Jost',sans-serif;font-size:11px;color:var(--texto2);margin-top:2px}
+.programa-map-link{display:inline-flex;align-items:center;gap:5px;font-family:'Jost',sans-serif;font-size:11px;color:var(--texto2);margin-top:5px;text-decoration:underline;text-underline-offset:2px}
 
-/* FAQ */
 .faq-item{padding:16px 0;border-bottom:0.5px solid var(--borde)}
 .faq-item:last-child{border-bottom:none}
 .faq-q{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--azul-med);margin-bottom:6px}
 .faq-a{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.6}
 
-/* MENSAJE */
 .mensaje-section{position:relative;overflow:hidden;padding:50px 48px 42px;border-bottom:1px solid var(--borde);background:var(--blanco)}
-.world-map-bg{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Cellipse cx='200' cy='200' rx='160' ry='110' fill='%231a3a8f'/%3E%3Cellipse cx='480' cy='180' rx='200' ry='120' fill='%231a3a8f'/%3E%3Cellipse cx='720' cy='210' rx='120' ry='90' fill='%231a3a8f'/%3E%3Cellipse cx='580' cy='350' rx='80' ry='50' fill='%231a3a8f'/%3E%3Cellipse cx='240' cy='370' rx='60' ry='40' fill='%231a3a8f'/%3E%3Cellipse cx='800' cy='380' rx='55' ry='35' fill='%231a3a8f'/%3E%3C/svg%3E");background-size:cover;background-position:center;pointer-events:none}
 .plane-heart{text-align:center;margin-bottom:22px;position:relative;z-index:2}
 .mensaje-title{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--azul-med);text-align:center;margin-bottom:20px;position:relative;z-index:2}
 .mensaje-body{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--texto);line-height:1.85;text-align:center;position:relative;z-index:2;margin-bottom:22px}
@@ -219,16 +194,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .oro-sep{display:flex;align-items:center;justify-content:center;gap:10px;padding:0 48px;height:26px;background:var(--blanco)}
 .oro-sep::before,.oro-sep::after{content:'';flex:1;height:0.5px;background:linear-gradient(90deg,transparent,var(--oro-linea),transparent)}
 .oro-diamond{width:5px;height:5px;background:var(--oro-linea);transform:rotate(45deg);flex-shrink:0}
-
-/* MINI CALENDARIO */
-.mini-calendar{border:1px solid var(--borde);border-radius:10px;padding:18px 16px;margin-bottom:22px;background:var(--fondo)}
-.mini-cal-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--texto);text-align:center;margin-bottom:12px}
-.mini-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.mini-cal-dow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--texto2);padding-bottom:8px;border-bottom:2px solid var(--azul);margin-bottom:8px}
-.mini-cal-grid:not(.mini-cal-dow) span{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--texto);padding:6px 0;position:relative}
-.mini-cal-day-highlight{position:relative;display:flex;align-items:center;justify-content:center}
-.mini-cal-day-highlight svg{position:absolute;width:26px;height:24px;top:50%;left:50%;transform:translate(-50%,-52%)}
-.mini-cal-day-highlight em{position:relative;z-index:1;font-style:normal;color:#F7F4E7;font-weight:600;font-size:12px}
 
 /* COUNTDOWN — línea simple con separadores */
 .countdown-line{display:flex;align-items:stretch;justify-content:center;gap:0;margin-top:10px}
@@ -241,14 +206,6 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
   .count-number-simple{font-size:30px}
 }
 
-/* COUNTDOWN */
-.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
-.count-box{text-align:center;background:var(--azul);padding:16px 8px 11px;position:relative}
-.count-box::before{content:'';position:absolute;inset:3px;border:0.5px solid rgba(212,185,140,0.4)}
-.count-number{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--oro-claro);line-height:1;display:block}
-.count-label{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-top:5px}
-
-/* DETALLES */
 .detail-row{display:flex;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:0.5px solid var(--borde)}
 .detail-row:last-child{border-bottom:none}
 .detail-icon{width:30px;height:30px;min-width:30px;background:var(--azul);display:flex;align-items:center;justify-content:center;margin-top:2px}
@@ -258,42 +215,12 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .map-btn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#D4AF6A;color:#F7F4E7;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:1px;padding:8px 18px;text-decoration:none;transition:background 0.2s}
 .map-btn:hover{background:var(--azul-med)}
 
-/* DRESS CODE */
-.palette-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.swatch{display:flex;flex-direction:column;align-items:center;gap:5px}
-.swatch-circle{width:36px;height:36px;border-radius:50%;border:0.5px solid rgba(0,0,0,0.1)}
-.swatch-name{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:1px;color:var(--texto2);text-transform:uppercase}
-.avoid-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-.avoid-pill{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border:1px solid currentColor}
-.avoid-white{color:#9090b0;background:#f5f5ff}.avoid-black{color:#4a4640;background:#eeecea}.avoid-red{color:#a85050;background:#fdf0f0}
-
-/* OUTFITS */
-.outfit-tabs{display:flex;margin-bottom:16px;margin-top:20px;border:0.5px solid var(--borde)}
-.outfit-tab{flex:1;padding:11px;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-align:center;cursor:pointer;color:var(--texto2);background:transparent;border:none;transition:all 0.2s}
-.outfit-tab:first-child{border-right:0.5px solid var(--borde)}
-.outfit-tab.active{background:var(--azul);color:var(--oro-claro)}
-.outfit-panel{display:none}.outfit-panel.active{display:block}
-.outfit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.outfit-item{background:var(--azul-suave);border:0.5px solid var(--borde);padding:16px 12px;text-align:center;text-decoration:none;display:block;transition:border-color 0.2s,transform 0.15s}
-.outfit-item:hover{border-color:var(--azul-med);transform:translateY(-2px)}
-.outfit-figure{width:56px;height:84px;margin:0 auto 10px;display:block}
-.outfit-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--texto);margin-bottom:3px}
-.outfit-desc{font-family:'Jost',sans-serif;font-size:9px;color:var(--texto2);line-height:1.5}
-.outfit-tag{display:inline-block;margin-top:5px;padding:2px 8px;font-family:'Jost',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;border:0.5px solid var(--azul-med);color:var(--azul-med)}
-.outfit-link-badge{display:block;margin-top:4px;font-family:'Jost',sans-serif;font-size:8px;color:var(--azul-med);letter-spacing:1px}
-.outfit-hint{font-family:'Jost',sans-serif;font-size:9px;color:var(--texto2);margin-top:10px;text-align:center}
-.outfit-see-more{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:10px;border:0.5px solid var(--azul-med);text-decoration:none;transition:background 0.2s}
-.outfit-see-more:hover{background:var(--azul-suave)}
-.outfit-see-more span{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--azul-med)}
-
-/* INFO CARDS */
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .info-card{background:var(--blanco);border:0.5px solid var(--borde);border-top:2px solid #D4AF6A;padding:22px 14px;text-align:center}
 .info-icon{font-size:18px;margin-bottom:8px;display:block;color:var(--azul-med)}
 .info-title{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--azul-med);margin-bottom:8px}
 .info-text{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--texto);line-height:1.6}
 
-/* RSVP */
 .rsvp-inner{text-align:center;padding:8px 0 4px}
 .deadline{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;color:var(--texto2);text-transform:uppercase;margin-bottom:22px}
 .deadline span{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--texto);display:block;margin-top:5px}
@@ -301,41 +228,22 @@ body{background:#F3F0E3;font-family:'Jost',sans-serif;color:var(--texto);min-hei
 .rsvp-btn::before{content:'';position:absolute;inset:4px;border:0.5px solid rgba(201,166,107,0.35);pointer-events:none}
 .rsvp-btn:hover{background:var(--azul-med)}
 
-/* MODAL */
 .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(59,92,46,0.75);z-index:500;align-items:center;justify-content:center;padding:20px}
 .modal-backdrop.open{display:flex}
 .modal{background:var(--blanco);max-width:400px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(59,92,46,0.3)}
 .modal-header{background:var(--azul);padding:20px 24px 16px;position:relative}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--blanco)}
 .modal-close{position:absolute;top:14px;right:14px;width:28px;height:28px;background:rgba(201,166,107,0.15);border:none;cursor:pointer;color:var(--oro-claro);font-size:16px;display:flex;align-items:center;justify-content:center}
-.modal-body{padding:24px}
-.modal-field{margin-bottom:20px}
-.modal-label{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--blanco);display:block;margin-bottom:8px;background:var(--azul);padding:6px 12px;margin-left:-24px;margin-right:-24px;padding-left:24px}
-.modal-input,.modal-textarea{width:100%;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--texto);border:0.5px solid var(--borde);background:var(--fondo);padding:10px 12px;outline:none;resize:vertical;transition:border-color 0.2s}
-.modal-input:focus,.modal-textarea:focus{border-color:var(--azul-med)}
-.modal-textarea{min-height:80px}
-.radio-group{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-.radio-label{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--texto)}
-.radio-label input[type=radio]{accent-color:var(--azul);width:16px;height:16px;cursor:pointer}
-.modal-submit{width:100%;background:var(--azul);color:var(--oro-claro);font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;letter-spacing:2px;padding:14px;border:none;cursor:pointer;transition:background 0.3s;margin-top:8px}
-.modal-submit:hover{background:var(--azul-med)}
-.modal-success{text-align:center;padding:32px 24px}
-.modal-success-icon{font-size:36px;color:var(--azul-med);display:block;margin-bottom:16px}
-.modal-success-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--texto);margin-bottom:8px}
-.modal-success-text{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--texto2)}
 
-/* FOOTER */
 .footer{background:var(--azul);padding:30px 48px;text-align:center}
 .monogram{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;font-style:italic;color:var(--oro-claro);letter-spacing:8px}
 .footer-sub{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;color:rgba(201,166,107,0.4);text-transform:uppercase;margin-top:8px}
 
-/* CARRETE */
 .carrete-slide{min-width:100%;flex-shrink:0}
 .carrete-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;display:inline-block;transition:background 0.3s}
 .carrete-dot.active{background:#F0E4C4}
 .carrete-wrap{position:relative;overflow:hidden;margin:0}
 
-/* Ocultar reproductor nativo de Chrome */
 audio{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
 video{display:none!important}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
@@ -345,9 +253,7 @@ video{display:none!important}
 .wave-dot.playing:nth-child(2){animation-delay:0.15s}
 .wave-dot.playing:nth-child(3){animation-delay:0.3s}
 .wave-dot.playing:nth-child(4){animation-delay:0.15s}
-.fade-in{animation:fadeUp 0.9s ease forwards}/* ══════════════════════════════
-   HOJAS CAYENDO (efecto ambiental)
-══════════════════════════════ */
+.fade-in{animation:fadeUp 0.9s ease forwards}
 .falling-leaves{position:fixed;inset:0;pointer-events:none;z-index:1001;overflow:hidden}
 .leaf-particle{position:absolute;top:-40px;display:block;opacity:0;animation:leafFall linear infinite}
 .leaf-particle svg{display:block;filter:drop-shadow(0 2px 3px rgba(36,61,24,0.15))}
@@ -362,25 +268,16 @@ video{display:none!important}
 </head>
 <body>
 
-<!-- Audio de fondo -->
 <audio id="bgAudio" src="cancion.mp3" loop preload="auto"></audio>
 
-<!-- ══ PANTALLA DEL SOBRE ══ -->
 <div class="envelope-screen" id="envelopeScreen">
 
-  <!-- Hojas cayendo (solo en la pantalla del sobre) -->
   <div class="falling-leaves" id="fallingLeaves"></div>
-
-  <div class="envelope-top-greeting">
-    <div class="envelope-top-para">PARA</div>
-    <div class="envelope-top-name" id="topGuestName">Invitado especial</div>
-  </div>
 
   <div class="envelope-wrap" onclick="openEnvelope()">
 
     <div class="envelope-frame">
 
-      <!-- Esquinas botánicas reales (recortadas del mismo marco dorado) -->
       <div class="env-corner-branch tl" aria-hidden="true"></div>
       <div class="env-corner-branch tr" aria-hidden="true"></div>
       <div class="env-corner-branch br" aria-hidden="true"></div>
@@ -435,7 +332,6 @@ video{display:none!important}
       </div>
     </div>
 
-    <!-- Ticket blanco personalizado (imagen 2) -->
     <div class="ticket-bottom">
       <div class="ticket-flower" aria-hidden="true">❀</div>
       <div class="ticket-info">
@@ -450,7 +346,6 @@ video{display:none!important}
 
 </div>
 
-<!-- MODAL RSVP -->
 <div class="modal-backdrop" id="rsvpModal">
   <div class="modal">
     <div class="modal-header">
@@ -463,7 +358,6 @@ video{display:none!important}
   </div>
 </div>
 
-<!-- Botón música flotante -->
 <div id="musicControl" style="position:fixed;bottom:24px;right:24px;z-index:200;display:none;flex-direction:column;align-items:center;gap:5px">
   <button id="musicBtn" onclick="toggleMusic()" title="Reproducir música" style="width:46px;height:46px;border-radius:50%;background:#3B5C2E;border:1.5px solid #D4B98C;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(59,92,46,0.4)">
     <svg width="15" height="17" viewBox="0 0 15 17" fill="#F0E4C4"><path d="M1 1l13 7.5L1 16V1z"/></svg>
@@ -480,14 +374,11 @@ video{display:none!important}
   </div>
 </div>
 
-<!-- ══ INVITACIÓN PRINCIPAL ══ -->
 <div class="invitation" id="invitation">
   <div class="card">
     <div class="border-frame"></div>
 
-    <!-- HERO -->
     <div class="hero" style="background:linear-gradient(160deg,rgba(59,92,46,0.78) 0%,rgba(124,154,107,0.72) 55%,rgba(124,154,107,0.75) 100%),url('londres1.jpg') center center / cover no-repeat">
-      <!-- Estrellas decorativas top -->
       <svg class="botanical-top" viewBox="0 0 480 120" fill="none">
         <g opacity="0.6">
           <text x="30" y="50" font-size="18" fill="#D4B98C" opacity="0.5">❀</text>
@@ -505,7 +396,6 @@ video{display:none!important}
       <div class="divider-ornament fade-in" style="animation-delay:0.4s"><div class="diamond"></div></div>
       <div class="date-hero fade-in" style="animation-delay:0.5s">12 · 12 · 2026</div>
       <span class="year-big">2026</span>
-      <!-- Estrellas decorativas bottom -->
       <svg class="botanical-bottom" viewBox="0 0 480 100" fill="none">
         <g opacity="0.6">
           <line x1="0" y1="30" x2="480" y2="30" stroke="#D4B98C" stroke-width="0.5" opacity="0.2"/>
@@ -519,13 +409,11 @@ video{display:none!important}
     </div>
 
 
-    <!-- Banner activar música (solo si Chrome lo bloqueó) -->
     <div id="musicBanner" style="display:none;background:#243D18;padding:10px 24px;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(212,185,140,0.2)">
       <span style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,166,107,0.7)">♪ Toca para activar la música</span>
       <button onclick="activateMusic()" style="background:rgba(212,185,140,0.15);border:1px solid #D4B98C;color:#F0E4C4;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;cursor:pointer">Activar</button>
     </div>
 
-    <!-- MENSAJE -->
     <div class="mensaje-section">
       <div class="plane-heart">
         <svg width="220" height="34" viewBox="0 0 220 34" fill="none">
@@ -556,8 +444,8 @@ video{display:none!important}
           <div>
             <div class="programa-titulo">Ceremonia religiosa</div>
             <div class="programa-sub">Iglesia San Francisco de Asís</div>
-            <a class="map-btn" style="margin-top:8px" href="https://www.google.com/maps/place/Iglesia+San+Rafael+de+Chin%C3%BA/@9.1041943,-75.416674,15z/data=!4m10!1m2!2m1!1sIglesia+Central+de+Chin%C3%BA,+C%C3%B3rdoba!3m6!1s0x8e5968fad0419aa7:0x7fb51633313706ea!8m2!3d9.1041935!4d-75.3986494!15sCiNJZ2xlc2lhIENlbnRyYWwgZGUgQ2hpbsO6LCBDw7NyZG9iYZIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F11bycjr3_s?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-              <svg width="11" height="13" viewBox="0 0 11 13" fill="none"><path d="M5.5 0C3.015 0 1 2.015 1 4.5c0 3.375 4.5 8 4.5 8s4.5-4.625 4.5-8C10 2.015 7.985 0 5.5 0z" stroke="#F0E4C4" stroke-width="0.9" fill="none"/><circle cx="5.5" cy="4.5" r="1.5" fill="#F0E4C4"/></svg>
+            <a class="programa-map-link" href="https://www.google.com/maps/place/Iglesia+San+Rafael+de+Chin%C3%BA/@9.1041943,-75.416674,15z/data=!4m10!1m2!2m1!1sIglesia+Central+de+Chin%C3%BA,+C%C3%B3rdoba!3m6!1s0x8e5968fad0419aa7:0x7fb51633313706ea!8m2!3d9.1041935!4d-75.3986494!15sCiNJZ2xlc2lhIENlbnRyYWwgZGUgQ2hpbsO6LCBDw7NyZG9iYZIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F11bycjr3_s?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+              <svg width="10" height="12" viewBox="0 0 11 13" fill="none"><path d="M5.5 0C3.015 0 1 2.015 1 4.5c0 3.375 4.5 8 4.5 8s4.5-4.625 4.5-8C10 2.015 7.985 0 5.5 0z" stroke="var(--texto2)" stroke-width="0.9" fill="none"/><circle cx="5.5" cy="4.5" r="1.5" fill="var(--texto2)"/></svg>
               Ver ubicación
             </a>
           </div>
@@ -568,8 +456,8 @@ video{display:none!important}
           <div>
             <div class="programa-titulo">Recibimiento y Coctel de Bienvenida</div>
             <div class="programa-sub">La Bonita Luxury EcoHotel</div>
-            <a class="map-btn" style="margin-top:8px" href="https://www.google.com/maps?q=Ecohotel+La+Bonita,+km+82+troncal+de+occidente+Entre+Chinu+y,+Sahag%C3%BAn,+Chin%C3%BA,+C%C3%B3rdoba&ftid=0x8e59654690f43081:0xf42f5c453c7eae9c" target="_blank">
-              <svg width="11" height="13" viewBox="0 0 11 13" fill="none"><path d="M5.5 0C3.015 0 1 2.015 1 4.5c0 3.375 4.5 8 4.5 8s4.5-4.625 4.5-8C10 2.015 7.985 0 5.5 0z" stroke="#F0E4C4" stroke-width="0.9" fill="none"/><circle cx="5.5" cy="4.5" r="1.5" fill="#F0E4C4"/></svg>
+            <a class="programa-map-link" href="https://www.google.com/maps?q=Ecohotel+La+Bonita,+km+82+troncal+de+occidente+Entre+Chinu+y,+Sahag%C3%BAn,+Chin%C3%BA,+C%C3%B3rdoba&ftid=0x8e59654690f43081:0xf42f5c453c7eae9c" target="_blank">
+              <svg width="10" height="12" viewBox="0 0 11 13" fill="none"><path d="M5.5 0C3.015 0 1 2.015 1 4.5c0 3.375 4.5 8 4.5 8s4.5-4.625 4.5-8C10 2.015 7.985 0 5.5 0z" stroke="var(--texto2)" stroke-width="0.9" fill="none"/><circle cx="5.5" cy="4.5" r="1.5" fill="var(--texto2)"/></svg>
               Ver ubicación
             </a>
           </div>
@@ -624,7 +512,6 @@ video{display:none!important}
     <div class="section" style="text-align:center;background:var(--fondo);border-bottom:1px solid var(--borde)">
       <div class="section-label" style="justify-content:center">Código de vestimenta</div>
 
-      <!-- Marco elegante -->
       <div style="border:1px solid var(--oro-linea);padding:20px 16px;margin-bottom:24px;position:relative">
         <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--azul);letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:12px">
           <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 2 L8 6 L1 10 Z" fill="var(--azul)"/><path d="M17 2 L10 6 L17 10 Z" fill="var(--azul)"/><rect x="7.5" y="4.5" width="3" height="3" rx="0.5" fill="var(--azul)"/></svg>
@@ -634,10 +521,8 @@ video{display:none!important}
         <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--texto2);margin-top:4px">Dress Code</div>
       </div>
 
-      <!-- Descripción -->
       <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.75;margin-bottom:24px;text-align:center">¡Queremos ver el jardín florecer con ustedes! 🌸✨<br><br>Piensa en un look elegante con un toque fresco y natural: vestidos fluidos o en tonos tierra, flores, colores suaves o vibrantes y zapatos cómodos para bailar. ¡Celebremos al aire libre con estilo y comodidad!</p>
 
-      <!-- Colores a evitar en línea -->
       <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;padding:12px;border:0.5px solid var(--borde)">
         <span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--texto2)">Evitar:</span>
         <div style="width:20px;height:20px;border-radius:50%;background:#f5f5f5;border:1px solid #ddd"></div>
@@ -648,14 +533,13 @@ video{display:none!important}
         <span style="font-family:'Jost',sans-serif;font-size:9px;color:var(--texto2)">Rojo</span>
       </div>
 
-      <!-- Botones inspiración -->
       <p style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--azul-med);margin-bottom:16px">❀ Paleta de inspiración ❀</p>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a href="https://co.pinterest.com/karinnaoz/boda-karin-nico/mujeres/" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s;background:var(--azul-suave)">
+        <a href="https://co.pinterest.com/search/pins/?q=vestido%20formal%20boda%20pastel%20campestre%20clima%20caliente&rs=typed" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s;background:var(--azul-suave)">
           <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--azul);display:flex;align-items:center;justify-content:center;gap:8px"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><circle cx="8" cy="2.5" r="2" fill="var(--azul)"/><path d="M6.5 4.5 L4.5 9 L3 17 H13 L11.5 9 L9.5 4.5 Z" fill="var(--azul)"/></svg> Mujeres</div>
           <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-top:4px">Clic aquí para inspirarte</div>
         </a>
-        <a href="https://co.pinterest.com/karinnaoz/boda-karin-nico/hombres/" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s;background:var(--azul-suave)">
+        <a href="https://co.pinterest.com/search/pins/?q=camisa%20lino%20boda%20pastel%20campestre%20clima%20caliente%20hombre&rs=typed" target="_blank" style="display:block;border:1px solid var(--azul);padding:14px;text-decoration:none;transition:background 0.2s;background:var(--azul-suave)">
           <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--azul);display:flex;align-items:center;justify-content:center;gap:8px"><svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 2 L8 6 L1 10 Z" fill="var(--azul)"/><path d="M17 2 L10 6 L17 10 Z" fill="var(--azul)"/><rect x="7.5" y="4.5" width="3" height="3" rx="0.5" fill="var(--azul)"/></svg> Hombres</div>
           <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-top:4px">Clic aquí para inspirarte</div>
         </a>
@@ -666,10 +550,8 @@ video{display:none!important}
     <div class="section">
       <div class="section-label">Información importante</div>
       <div style="position:relative;padding-left:48px">
-        <!-- Línea vertical -->
         <div style="position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--azul),var(--oro-linea),var(--azul))"></div>
 
-        <!-- Item 1 -->
         <div style="position:relative;margin-bottom:28px">
           <div style="position:absolute;left:-55px;top:0;width:34px;height:34px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <svg width="17" height="14" viewBox="0 0 17 14" fill="none"><rect x="0.5" y="0.5" width="16" height="13" rx="1.5" stroke="#F0E4C4" stroke-width="1"/><path d="M1 1.5 L8.5 7.5 L16 1.5" stroke="#F0E4C4" stroke-width="1" fill="none"/></svg>
@@ -679,7 +561,6 @@ video{display:none!important}
         </div>
 
 
-        <!-- Item 3 -->
         <div style="position:relative;margin-bottom:28px">
           <div style="position:absolute;left:-55px;top:0;width:34px;height:34px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 15.5V6L8 1.5L14.5 6V15.5" stroke="#F0E4C4" stroke-width="1" fill="none" stroke-linejoin="round"/><rect x="4" y="9" width="2.5" height="2.5" fill="#F0E4C4"/><rect x="9.5" y="9" width="2.5" height="2.5" fill="#F0E4C4"/><rect x="6.5" y="12.5" width="3" height="3" fill="#F0E4C4"/></svg>
@@ -688,7 +569,6 @@ video{display:none!important}
           <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--texto);line-height:1.6">Escríbenos al WhatsApp para coordinar tu estadía en el hotel.<br><a href="https://wa.me/573226390841" target="_blank" style="color:var(--azul-med);font-weight:500;text-decoration:none">+57 322 639 0841</a></p>
         </div>
 
-        <!-- Item 4 -->
         <div style="position:relative">
           <div style="position:absolute;left:-55px;top:0;width:34px;height:34px;border-radius:50%;background:var(--azul);border:2px solid var(--oro-linea);display:flex;align-items:center;justify-content:center">
             <svg width="17" height="14" viewBox="0 0 17 14" fill="none"><path d="M6 1.5 L5 3H2.5A1.5 1.5 0 0 0 1 4.5V12A1.5 1.5 0 0 0 2.5 13.5H14.5A1.5 1.5 0 0 0 16 12V4.5A1.5 1.5 0 0 0 14.5 3H12L11 1.5Z" stroke="#F0E4C4" stroke-width="1" fill="none" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="3" stroke="#F0E4C4" stroke-width="1" fill="none"/></svg>
@@ -749,7 +629,6 @@ video{display:none!important}
 </div>
 
 <script>
-// ── Hojas cayendo (efecto ambiental) ──
 (function(){
   const container = document.getElementById('fallingLeaves');
   const leafSVG = (color) => `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -776,7 +655,6 @@ video{display:none!important}
   }
 })();
 
-// ── Carrete de fotos ──
 let slideActual = 0;
 const totalSlides = 6;
 function moverCarrete(dir) {
@@ -791,11 +669,9 @@ function actualizarCarrete() {
   document.getElementById('carrete').style.transform = `translateX(-${slideActual * 100}%)`;
   document.querySelectorAll('.carrete-dot').forEach((d, i) => d.classList.toggle('active', i === slideActual));
 }
-// Auto-avance cada 4 segundos
 setInterval(() => moverCarrete(1), 4000);
 
 
-// Uso: index.html?n=Juan%20y%20Maria
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get('n') ? decodeURIComponent(params.get('n')) : '';
 const guestCupos = params.get('c') ? decodeURIComponent(params.get('c')) : '';
@@ -815,12 +691,10 @@ if (guestCupos) {
   if (el) { el.textContent = 'CUPOS: ' + guestCupos; el.style.display = 'block'; }
 }
 
-// ── Abrir sobre ──
 function openEnvelope() {
   const screen = document.getElementById('envelopeScreen');
   screen.classList.add('hiding');
 
-  // Forzar audio en Chrome — crear nuevo contexto desde el clic directo
   const audio = document.getElementById('bgAudio');
   audio.volume = 0.75;
   audio.load();
@@ -832,7 +706,6 @@ function openEnvelope() {
       document.querySelectorAll('.wave-dot').forEach(d => d.style.animation='wave-dot 1s ease-in-out infinite');
       document.getElementById('musicBanner').style.display = 'none';
     }).catch(() => {
-      // Si Chrome aún bloquea, mostrar banner para activar manualmente
       document.getElementById('musicBanner').style.display = 'flex';
     });
   }
@@ -873,7 +746,6 @@ function activateMusic() {
 function confirmarWhatsApp() {}
 
 
-// ── Countdown ──
 function updateCD() {
   const d = new Date(2026, 11, 12, 17, 0, 0) - new Date();
   if (d <= 0) return;
@@ -884,15 +756,6 @@ function updateCD() {
 }
 setTimeout(() => { updateCD(); setInterval(updateCD, 1000); }, 100);
 
-// ── Outfit tabs ──
-function showTab(tab, btn) {
-  document.querySelectorAll('.outfit-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.outfit-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ── Modal RSVP ──
 function openModal(){
   document.getElementById('rsvpModal').classList.add('open');
   document.getElementById('modalForm').style.display='block';
@@ -900,23 +763,6 @@ function openModal(){
 }
 function closeModal(){document.getElementById('rsvpModal').classList.remove('open');}
 document.getElementById('rsvpModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-function submitRSVP(){
-  const nombre=document.getElementById('rsvpNombres').value.trim();
-  const asistencia=document.querySelector('input[name=asistencia]:checked');
-  const cupos=document.getElementById('rsvpCupos').value||'1';
-  const mensaje=document.getElementById('rsvpMensaje').value.trim();
-  if(!nombre){alert('Por favor ingresa tu nombre.');return;}
-  if(!asistencia){alert('Por favor selecciona si podrás asistir.');return;}
-  // Enviar a Google Forms en segundo plano
-  const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSdFSg3dPMtH5BT5_8nQlT_VRza2Cj1_22CPYU-pWXKWp50UtQ/formResponse';
-  const data=new FormData();
-  data.append('entry.1919961289', nombre);
-  data.append('entry.1719577268', asistencia.value);
-  data.append('entry.1110310619', mensaje);
-  fetch(formUrl,{method:'POST',body:data,mode:'no-cors'}).catch(()=>{});
-  document.getElementById('modalForm').style.display='none';
-  document.getElementById('modalSuccess').style.display='block';
-}
 </script>
 </body>
 </html>
