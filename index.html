@@ -664,8 +664,40 @@ setInterval(() => moverCarrete(1), 4000);
 
 
 // Tabla de invitados: código corto -> nombre y cupos
-const GUEST_CODES = {"PN01": {"name": "German Montejo & Damaris Perez", "cupos": 2}, "MN01": {"name": "July Acosta", "cupos": 1}, "HN01": {"name": "Hermana de Nico", "cupos": 1}, "GX01": {"name": "Grace", "cupos": 1}, "JX01": {"name": "Jaime", "cupos": 1}, "DX01": {"name": "Deya", "cupos": 1}, "ED01": {"name": "Esposo Deya", "cupos": 1}, "YX01": {"name": "Yiyi", "cupos": 1}, "CX01": {"name": "Caliche", "cupos": 1}, "MX01": {"name": "Mafe", "cupos": 1}, "MX02": {"name": "Mario", "cupos": 1}, "NM01": {"name": "Novia Mario", "cupos": 1}, "NX01": {"name": "Nena", "cupos": 1}, "LX01": {"name": "Lee", "cupos": 1}, "MX03": {"name": "Miguel", "cupos": 1}, "EM01": {"name": "Esposa de Miguel", "cupos": 1}, "RX01": {"name": "Rumbal", "cupos": 1}, "PX01": {"name": "Papu", "cupos": 1}, "VX01": {"name": "Vanesa", "cupos": 1}, "EX01": {"name": "Esposo", "cupos": 1}, "RX02": {"name": "Ranielito", "cupos": 1}, "TM01": {"name": "Tía muñeca", "cupos": 1}, "AA01": {"name": "Andrés Atahualpa", "cupos": 1}, "MX04": {"name": "Mauricio", "cupos": 1}, "TO01": {"name": "Tío Orlando", "cupos": 1}, "CX02": {"name": "Consuelo", "cupos": 1}, "SX01": {"name": "Santi", "cupos": 1}, "KX01": {"name": "Karol", "cupos": 1}, "JD01": {"name": "Juan David", "cupos": 1}, "PX02": {"name": "Paula", "cupos": 1}, "AX01": {"name": "Adrianita", "cupos": 1}, "TL01": {"name": "Tía Lucia", "cupos": 1}, "LX02": {"name": "Lilianita", "cupos": 1}, "FX01": {"name": "Fernando", "cupos": 1}};
-const params = new URLSearchParams(window.location.search);
+const GUEST_CODES = {"FMP01": {"name": "Familia Montejo Pérez", "cupos": 3}, 
+"KB01": {"name": "Karla Barcenas Monterroza", "cupos": 1}, 
+"RBS01": {"name": "Roberto Salas", "cupos": 1}, 
+"FAP01": {"name": "Familia Acero Pérez", "cupos": 1}, 
+"DX01": {"name": "Familia Cabrera Pérez", "cupos": 2}, 
+"ED01": {"name": "Esposo Deya", "cupos": 1}, 
+"YX01": {"name": "Yiyi", "cupos": 1}, 
+"CX01": {"name": "Caliche", "cupos": 1}, 
+"MX01": {"name": "Mafe", "cupos": 1}, 
+"MX02": {"name": "Mario", "cupos": 1}, 
+"NM01": {"name": "Novia Mario", "cupos": 1}, 
+"NX01": {"name": "Nena", "cupos": 1}, 
+"LX01": {"name": "Lee", "cupos": 1}, 
+"MX03": {"name": "Miguel", "cupos": 1}, 
+"EM01": {"name": "Esposa de Miguel", "cupos": 1}, 
+"RX01": {"name": "Rumbal", "cupos": 1}, 
+"PX01": {"name": "Papu", "cupos": 1}, 
+"VX01": {"name": "Vanesa", "cupos": 1}, 
+"EX01": {"name": "Esposo", "cupos": 1}, 
+"RX02": {"name": "Ranielito", "cupos": 1}, 
+"TM01": {"name": "Tía muñeca", "cupos": 1}, 
+"AA01": {"name": "Andrés Atahualpa", "cupos": 1}, 
+"MX04": {"name": "Mauricio", "cupos": 1}, 
+"TO01": {"name": "Tío Orlando", "cupos": 1}, 
+"CX02": {"name": "Consuelo", "cupos": 1}, 
+"SX01": {"name": "Santi", "cupos": 1}, 
+"KX01": {"name": "Karol", "cupos": 1}, 
+"JD01": {"name": "Juan David", "cupos": 1}, 
+"PX02": {"name": "Paula", "cupos": 1}, 
+"AX01": {"name": "Adrianita", "cupos": 1}, 
+"TL01": {"name": "Tía Lucia", "cupos": 1}, 
+"LX02": {"name": "Lilianita", "cupos": 1}, 
+"FX01": {"name": "Fernando", "cupos": 1}};
+  const params = new URLSearchParams(window.location.search);
 const guestCode = params.get('i') ? params.get('i').toUpperCase() : '';
 let guestName = '';
 let guestCupos = '';
